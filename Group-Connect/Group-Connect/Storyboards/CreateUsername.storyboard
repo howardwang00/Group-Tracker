@@ -12,7 +12,7 @@
         <!--CreateUsernameViewController-->
         <scene sceneID="5Wb-CR-1Kt">
             <objects>
-                <viewController id="o3D-na-Tbf" userLabel="CreateUsernameViewController" sceneMemberID="viewController">
+                <viewController id="o3D-na-Tbf" userLabel="CreateUsernameViewController" customClass="CreateUsernameViewController" customModule="Group_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A7q-rl-qaN"/>
                         <viewControllerLayoutGuide type="bottom" id="qAY-g8-KGt"/>
@@ -44,6 +44,9 @@
                                 <state key="normal" title="Next!">
                                     <color key="titleColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="o3D-na-Tbf" eventType="touchUpInside" id="7dG-bT-SRp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,6 +61,10 @@
                             <constraint firstItem="xZ5-TX-Uni" firstAttribute="top" secondItem="YzF-ok-9gQ" secondAttribute="bottom" constant="20" id="wZk-01-l09"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nextButton" destination="pQV-4I-uOw" id="arr-eZ-AC9"/>
+                        <outlet property="usernameTextField" destination="xZ5-TX-Uni" id="PjV-bz-Wkv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3N-3H-d91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

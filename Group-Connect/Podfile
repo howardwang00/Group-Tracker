@@ -8,5 +8,6 @@ target 'Group-Connect' do
   # Pods for Group-Connect
 
   pod ‘Firebase/Core’
+  pod ‘Firebase/Database’
 
 end
