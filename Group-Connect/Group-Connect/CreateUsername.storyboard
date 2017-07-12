@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o3D-na-Tbf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CreateUsernameViewController-->
+        <scene sceneID="5Wb-CR-1Kt">
+            <objects>
+                <viewController id="o3D-na-Tbf" userLabel="CreateUsernameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A7q-rl-qaN"/>
+                        <viewControllerLayoutGuide type="bottom" id="qAY-g8-KGt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1sE-Pq-JoM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzF-ok-9gQ">
+                                <rect key="frame" x="15" y="200" width="345" height="113.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                                <color key="textColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-TX-Uni">
+                                <rect key="frame" x="30" y="333.5" width="315" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.68235294117647061" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQV-4I-uOw">
+                                <rect key="frame" x="87" y="393.5" width="200" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.68235294117647061" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5U8-T5-0bH"/>
+                                    <constraint firstAttribute="width" constant="200" id="hxW-tF-1V1"/>
+                                </constraints>
+                                <state key="normal" title="Next!">
+                                    <color key="titleColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="YzF-ok-9gQ" firstAttribute="top" secondItem="1sE-Pq-JoM" secondAttribute="top" constant="200" id="6h0-2a-nfV"/>
+                            <constraint firstAttribute="trailing" secondItem="YzF-ok-9gQ" secondAttribute="trailing" constant="15" id="9wk-9R-UP2"/>
+                            <constraint firstItem="pQV-4I-uOw" firstAttribute="top" secondItem="xZ5-TX-Uni" secondAttribute="bottom" constant="30" id="BXM-2f-ieA"/>
+                            <constraint firstItem="xZ5-TX-Uni" firstAttribute="leading" secondItem="1sE-Pq-JoM" secondAttribute="leading" constant="30" id="HD8-1t-ZUt"/>
+                            <constraint firstAttribute="trailing" secondItem="xZ5-TX-Uni" secondAttribute="trailing" constant="30" id="INZ-rs-GCo"/>
+                            <constraint firstItem="YzF-ok-9gQ" firstAttribute="leading" secondItem="1sE-Pq-JoM" secondAttribute="leading" constant="15" id="rhF-Ms-AQ4"/>
+                            <constraint firstItem="pQV-4I-uOw" firstAttribute="centerX" secondItem="1sE-Pq-JoM" secondAttribute="centerX" id="tSj-Nq-RYO"/>
+                            <constraint firstItem="xZ5-TX-Uni" firstAttribute="top" secondItem="YzF-ok-9gQ" secondAttribute="bottom" constant="20" id="wZk-01-l09"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p3N-3H-d91" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93.599999999999994" y="157.87106446776613"/>
+        </scene>
+    </scenes>
+</document>

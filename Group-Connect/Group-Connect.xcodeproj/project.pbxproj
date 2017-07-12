@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89913D761F1684E4009AA08C /* CreateUsername.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89913D751F1684E4009AA08C /* CreateUsername.storyboard */; };
+		89913D781F16942A009AA08C /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D771F16942A009AA08C /* CreateUsernameViewController.swift */; };
 		89CF44FD1F159C8B00C087D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF44FC1F159C8B00C087D5 /* AppDelegate.swift */; };
 		89CF44FF1F159C8B00C087D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF44FE1F159C8B00C087D5 /* ViewController.swift */; };
 		89CF45021F159C8B00C087D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CF45001F159C8B00C087D5 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		767830451F7F38C1DE7B2D75 /* Pods-Group-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group-Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Group-Connect/Pods-Group-Connect.release.xcconfig"; sourceTree = "<group>"; };
 		8339A8BB89674B8BFB7E0C9F /* Pods-Group-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group-Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Group-Connect/Pods-Group-Connect.debug.xcconfig"; sourceTree = "<group>"; };
+		89913D751F1684E4009AA08C /* CreateUsername.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateUsername.storyboard; sourceTree = "<group>"; };
+		89913D771F16942A009AA08C /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		89CF44F91F159C8B00C087D5 /* Group-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Group-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CF44FC1F159C8B00C087D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CF44FE1F159C8B00C087D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 				89CF45051F159C8B00C087D5 /* LaunchScreen.storyboard */,
 				89CF45081F159C8B00C087D5 /* Info.plist */,
 				89CF450E1F159E1A00C087D5 /* GoogleService-Info.plist */,
+				89913D751F1684E4009AA08C /* CreateUsername.storyboard */,
+				89913D771F16942A009AA08C /* CreateUsernameViewController.swift */,
 			);
 			path = "Group-Connect";
 			sourceTree = "<group>";
@@ -154,6 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89913D761F1684E4009AA08C /* CreateUsername.storyboard in Resources */,
 				89CF45071F159C8B00C087D5 /* LaunchScreen.storyboard in Resources */,
 				89CF450F1F159E1A00C087D5 /* GoogleService-Info.plist in Resources */,
 				89CF45041F159C8B00C087D5 /* Assets.xcassets in Resources */,
@@ -218,6 +225,7 @@
 			files = (
 				89CF44FF1F159C8B00C087D5 /* ViewController.swift in Sources */,
 				89CF44FD1F159C8B00C087D5 /* AppDelegate.swift in Sources */,
+				89913D781F16942A009AA08C /* CreateUsernameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +391,7 @@
 				89CF450D1F159C8B00C087D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
