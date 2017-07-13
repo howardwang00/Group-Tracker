@@ -11,5 +11,7 @@ import FirebaseDatabase
 
 struct UserService {
     
-    //static func createUser(username: String, )
+    static func createUser(username: String, completion: @escaping (User?) -> Void) {
+        
+    }
 }

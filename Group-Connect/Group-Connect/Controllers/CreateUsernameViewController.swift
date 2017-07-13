@@ -14,6 +14,8 @@ class CreateUsernameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nextButton.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {
