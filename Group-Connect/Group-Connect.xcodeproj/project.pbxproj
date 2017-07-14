@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		892698C31F1979F100A52AA5 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892698C21F1979F100A52AA5 /* Storyboard.swift */; };
+		892698C61F197C1D00A52AA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892698C51F197C1D00A52AA5 /* Main.storyboard */; };
 		892A07A51F17D8B100B3D8EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A07A41F17D8B100B3D8EF /* User.swift */; };
 		89913D921F16987E009AA08C /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D901F16987E009AA08C /* CreateUsernameViewController.swift */; };
 		89913D931F16987E009AA08C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D911F16987E009AA08C /* ViewController.swift */; };
 		89913D991F169893009AA08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89913D961F169893009AA08C /* LaunchScreen.storyboard */; };
-		89913D9A1F169893009AA08C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89913D971F169893009AA08C /* Main.storyboard */; };
+		89913D9A1F169893009AA08C /* Createusername.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89913D971F169893009AA08C /* Createusername.storyboard */; };
 		89913D9E1F1698A5009AA08C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89913D9C1F1698A5009AA08C /* GoogleService-Info.plist */; };
 		89913DA21F16C9CF009AA08C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913DA11F16C9CF009AA08C /* UserService.swift */; };
 		89913DA51F16CB2F009AA08C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913DA41F16CB2F009AA08C /* Constants.swift */; };
@@ -23,11 +25,13 @@
 /* Begin PBXFileReference section */
 		767830451F7F38C1DE7B2D75 /* Pods-Group-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group-Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Group-Connect/Pods-Group-Connect.release.xcconfig"; sourceTree = "<group>"; };
 		8339A8BB89674B8BFB7E0C9F /* Pods-Group-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group-Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Group-Connect/Pods-Group-Connect.debug.xcconfig"; sourceTree = "<group>"; };
+		892698C21F1979F100A52AA5 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboard.swift; path = Extensions/Storyboard.swift; sourceTree = "<group>"; };
+		892698C51F197C1D00A52AA5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		892A07A41F17D8B100B3D8EF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		89913D901F16987E009AA08C /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		89913D911F16987E009AA08C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
 		89913D961F169893009AA08C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89913D971F169893009AA08C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		89913D971F169893009AA08C /* Createusername.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Createusername.storyboard; path = Storyboards/Createusername.storyboard; sourceTree = "<group>"; };
 		89913D9C1F1698A5009AA08C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89913D9D1F1698A5009AA08C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Supporting/Info.plist; sourceTree = "<group>"; };
 		89913DA11F16C9CF009AA08C /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
@@ -50,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		892698C41F1979F800A52AA5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				892698C21F1979F100A52AA5 /* Storyboard.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		892A07A61F17D8B500B3D8EF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				89913D961F169893009AA08C /* LaunchScreen.storyboard */,
-				89913D971F169893009AA08C /* Main.storyboard */,
+				89913D971F169893009AA08C /* Createusername.storyboard */,
+				892698C51F197C1D00A52AA5 /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -117,6 +130,7 @@
 			children = (
 				89CF44FC1F159C8B00C087D5 /* AppDelegate.swift */,
 				89CF45031F159C8B00C087D5 /* Assets.xcassets */,
+				892698C41F1979F800A52AA5 /* Extensions */,
 				892A07A61F17D8B500B3D8EF /* Models */,
 				89913DA31F16C9D4009AA08C /* Services */,
 				89913D9B1F169898009AA08C /* Storyboards */,
@@ -207,9 +221,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				89913D991F169893009AA08C /* LaunchScreen.storyboard in Resources */,
+				892698C61F197C1D00A52AA5 /* Main.storyboard in Resources */,
 				89913D9E1F1698A5009AA08C /* GoogleService-Info.plist in Resources */,
 				89CF45041F159C8B00C087D5 /* Assets.xcassets in Resources */,
-				89913D9A1F169893009AA08C /* Main.storyboard in Resources */,
+				89913D9A1F169893009AA08C /* Createusername.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +286,7 @@
 				89913DA51F16CB2F009AA08C /* Constants.swift in Sources */,
 				89913DA21F16C9CF009AA08C /* UserService.swift in Sources */,
 				892A07A51F17D8B100B3D8EF /* User.swift in Sources */,
+				892698C31F1979F100A52AA5 /* Storyboard.swift in Sources */,
 				89913D931F16987E009AA08C /* ViewController.swift in Sources */,
 				89913D921F16987E009AA08C /* CreateUsernameViewController.swift in Sources */,
 				89CF44FD1F159C8B00C087D5 /* AppDelegate.swift in Sources */,

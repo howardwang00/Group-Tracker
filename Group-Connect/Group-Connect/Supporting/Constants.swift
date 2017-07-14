@@ -12,8 +12,10 @@ import Foundation
 struct Constants {
     
     static let createUsername = "CreateUsername"
+    static let users = "users"
     
-    struct UserDefaults {
+    struct User {
         static let username = "username"
+        static let newestUID = "newestUID"
     }
 }

@@ -10,7 +10,6 @@ import Foundation
 import FirebaseDatabase.FIRDataSnapshot
 
 class User: NSObject {
-    let uid: String
     let username: String
     
     private static var _current: User?
@@ -29,18 +28,15 @@ class User: NSObject {
     }
     
     init(uid: String, username: String) {
-        self.uid = uid
         self.username = username
         
         super.init()
     }
     
     init?(snapshot: DataSnapshot) {
-        guard let dict = snapshot.value as? [String : Any],
-            let username = dict[Constants.UserDefaults.username] as? String
-        else { return nil }
+        guard let username = snapshot.value as? String
+            else { return nil }
         
-        self.uid = snapshot.key
         self.username = username
         
         super.init()
