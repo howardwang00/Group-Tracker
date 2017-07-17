@@ -37,21 +37,20 @@ class CreateUsernameViewController: UIViewController {
                 fatalError("Unable to create new user")
             }
             
+            print("Signed in successfully to Firebase")
+            
             UserService.createUser(firebaseUser, username: username) { (user) in
                 guard let user = user else { return }
                 print("Created new user: \(user.username)")
                 
                 User.setCurrent(user, writeToUserDefaults: true)
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: .main)
-                if let initialViewController = storyboard.instantiateInitialViewController() {
-                    self.view.window?.rootViewController = initialViewController
-                    self.view.window?.makeKeyAndVisible()
-                }
+                print("Segue - ing")
+                let initialViewController = UIStoryboard.initialViewController(for: .main)
+                self.view.window?.rootViewController = initialViewController
+                self.view.window?.makeKeyAndVisible()
             }
-
         }
-        
     }
 }
 

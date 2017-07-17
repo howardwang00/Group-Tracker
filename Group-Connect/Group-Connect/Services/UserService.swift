@@ -22,10 +22,10 @@ struct UserService {
                 completion(nil)
             }
             
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                let user = User(snapshot: snapshot)
-                completion(user)
-            })
+            print("Wrote to Firebase")
+            
+            let user = User(uid: firebaseUser.uid, username: username)
+            completion(user)
         }
         
         
