@@ -46,7 +46,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="Mzs-CQ-Fzl" eventType="touchUpInside" id="hpd-mL-yrx"/>
-                                    <segue destination="6MY-bl-2Ve" kind="show" identifier="" id="zlc-Yw-MyL"/>
+                                    <segue destination="2wV-JL-qMC" kind="show" id="zlc-Yw-MyL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,7 +70,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Hc-Z3-GiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2631" y="375"/>
+            <point key="canvasLocation" x="6911.1999999999998" y="356.67166416791605"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ocg-ix-cr0">
+            <objects>
+                <viewController id="2wV-JL-qMC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eYh-aP-p2S"/>
+                        <viewControllerLayoutGuide type="bottom" id="nEV-e0-c8u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f5R-XP-V3I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JjK-oX-Bkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7682" y="357"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="SsH-qD-WAm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="3h3-36-64X" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RCy-A9-EQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8054" y="339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cey-ak-7v8">
@@ -88,15 +114,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rh9-4a-hLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="375"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="jpz-uN-k9L">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="6MY-bl-2Ve" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZM-dR-mny" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3262" y="374"/>
+            <point key="canvasLocation" x="6046" y="357"/>
         </scene>
     </scenes>
 </document>
