@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>205518473223-af8gfp821shd9aiill354n9nrggbe96c.apps.googleusercontent.com</string>
+	<string>285829518214-ffuekcbkeblcp0vet4nov81kfjrf5691.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.205518473223-af8gfp821shd9aiill354n9nrggbe96c</string>
+	<string>com.googleusercontent.apps.285829518214-ffuekcbkeblcp0vet4nov81kfjrf5691</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDodLUZSd5_Z6olWRnqMU3T8tbX3Jwht94</string>
+	<string>AIzaSyBHCDV7X4S96r9-CurcWLlUsmPV4FfEfcI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>205518473223</string>
+	<string>285829518214</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.hwang.Makestagram</string>
+	<string>com.hwang.Group-Connect</string>
 	<key>PROJECT_ID</key>
-	<string>makestagram-20a58</string>
+	<string>group-connect-31826</string>
 	<key>STORAGE_BUCKET</key>
-	<string>makestagram-20a58.appspot.com</string>
+	<string>group-connect-31826.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:205518473223:ios:bf84adcf7a159ff9</string>
+	<string>1:285829518214:ios:cc7af17b86ddd940</string>
 	<key>DATABASE_URL</key>
-	<string>https://makestagram-20a58.firebaseio.com</string>
+	<string>https://group-connect-31826.firebaseio.com</string>
 </dict>
 </plist>

@@ -8,30 +8,26 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth.FIRUser
 
 struct UserService {
     
-    static func createUser(username: String, completion: @escaping (User?) -> Void) {
-        let ref = Database.database().reference().child(Constants.users)
+    static func createUser(_ firebaseUser: FirebaseAuth.User, username: String, completion: @escaping (User?) -> Void) {
+        let ref = Database.database().reference().child(Constants.users).child(firebaseUser.uid)
+        let userAttributes = [Constants.User.username : username]
         
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard var userArray = snapshot.value as? [String] else { return }
+        ref.setValue(userAttributes) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                completion(nil)
+            }
             
-            for user in userArray {
-                if user == username {
-                    return
-                }
-            }
-            userArray.append(username)
-            ref.setValue(userArray) { (error, ref) in
-                if let error = error {
-                    assertionFailure(error.localizedDescription)
-                    completion(nil)
-                }
-            }
-            let user = User(snapshot: snapshot)
-            completion(user)
-        })
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                let user = User(snapshot: snapshot)
+                completion(user)
+            })
+        }
+        
         
     }
 }

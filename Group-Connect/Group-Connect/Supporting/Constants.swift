@@ -17,5 +17,6 @@ struct Constants {
     struct User {
         static let username = "username"
         static let newestUID = "newestUID"
+        static let current = "current"
     }
 }

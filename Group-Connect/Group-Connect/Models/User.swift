@@ -23,7 +23,8 @@ class User: NSObject {
     
     static func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
         if writeToUserDefaults {
-            //let data = NSKeyedArchiver
+            let data = NSKeyedArchiver.archivedData(withRootObject: user)
+            UserDefaults.standard.set(data, forKey: Constants.User.current)
         }
     }
     

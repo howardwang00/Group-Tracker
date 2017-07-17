@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CreateUsernameViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
@@ -26,17 +27,29 @@ class CreateUsernameViewController: UIViewController {
         guard let username = usernameTextField.text,
             !username.isEmpty else { return }
         
-        UserService.createUser(username: username) { (user) in
-            guard let user = user else { return }
-            print("Created new user: \(user.username)")
-            
-            User.setCurrent(user, writeToUserDefaults: true)
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let initialViewController = storyboard.instantiateInitialViewController() {
-                self.view.window?.rootViewController = initialViewController
-                self.view.window?.makeKeyAndVisible()
+        Auth.auth().signInAnonymously { (FIRuser, error) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                return
             }
+            
+            guard let firebaseUser = FIRuser else {
+                fatalError("Unable to create new user")
+            }
+            
+            UserService.createUser(firebaseUser, username: username) { (user) in
+                guard let user = user else { return }
+                print("Created new user: \(user.username)")
+                
+                User.setCurrent(user, writeToUserDefaults: true)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                if let initialViewController = storyboard.instantiateInitialViewController() {
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
+                }
+            }
+
         }
         
     }
