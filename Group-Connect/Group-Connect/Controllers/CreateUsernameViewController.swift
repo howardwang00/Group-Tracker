@@ -46,6 +46,7 @@ class CreateUsernameViewController: UIViewController {
                 User.setCurrent(user, writeToUserDefaults: true)
                 
                 print("Segue - ing")
+                self.performSegue(withIdentifier: Constants.Segue.toHome, sender: nil)
 //                let initialViewController = UIStoryboard.initialViewController(for: .main)
 //                self.view.window?.rootViewController = initialViewController
 //                self.view.window?.makeKeyAndVisible()

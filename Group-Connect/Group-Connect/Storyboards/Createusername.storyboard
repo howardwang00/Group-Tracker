@@ -22,20 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Y-4p-4m6">
-                                <rect key="frame" x="15" y="50" width="345" height="113.5"/>
+                                <rect key="frame" x="15" y="84" width="345" height="113.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
                                 <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-dy-vPQ">
-                                <rect key="frame" x="30" y="183.5" width="315" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.68235294120000001" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZq-US-ZMH">
-                                <rect key="frame" x="87.5" y="243.5" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="277.5" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.68235294120000001" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mep-pV-SmY"/>
@@ -46,18 +39,24 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="Mzs-CQ-Fzl" eventType="touchUpInside" id="hpd-mL-yrx"/>
-                                    <segue destination="6MY-bl-2Ve" kind="show" identifier="" id="zlc-Yw-MyL"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-dy-vPQ">
+                                <rect key="frame" x="30" y="217.5" width="315" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.68235294120000001" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Z2Y-4p-4m6" firstAttribute="leading" secondItem="Bax-gZ-3V2" secondAttribute="leading" constant="15" id="8Z5-ki-Bp3"/>
-                            <constraint firstItem="iZq-US-ZMH" firstAttribute="top" secondItem="OSL-dy-vPQ" secondAttribute="bottom" constant="30" id="Ax4-p8-tTE"/>
-                            <constraint firstItem="Z2Y-4p-4m6" firstAttribute="top" secondItem="Bax-gZ-3V2" secondAttribute="top" constant="50" id="GPo-iz-49O"/>
-                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="top" secondItem="Z2Y-4p-4m6" secondAttribute="bottom" constant="20" id="IAU-w1-Zl5"/>
+                            <constraint firstItem="iZq-US-ZMH" firstAttribute="top" secondItem="OSL-dy-vPQ" secondAttribute="bottom" constant="30" id="RnW-Pl-g4x"/>
                             <constraint firstItem="iZq-US-ZMH" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="fxG-to-xre"/>
                             <constraint firstAttribute="trailing" secondItem="Z2Y-4p-4m6" secondAttribute="trailing" constant="15" id="iu8-sH-Yh5"/>
+                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="top" secondItem="Z2Y-4p-4m6" secondAttribute="bottom" constant="20" id="krd-KT-ksJ"/>
+                            <constraint firstItem="Z2Y-4p-4m6" firstAttribute="top" secondItem="6Hd-aj-MZ4" secondAttribute="bottom" constant="20" id="r0F-ZA-Rao"/>
                             <constraint firstAttribute="trailing" secondItem="OSL-dy-vPQ" secondAttribute="trailing" constant="30" id="w4s-MP-QI1"/>
                             <constraint firstItem="OSL-dy-vPQ" firstAttribute="leading" secondItem="Bax-gZ-3V2" secondAttribute="leading" constant="30" id="yVR-mZ-jCa"/>
                         </constraints>
@@ -66,6 +65,7 @@
                     <connections>
                         <outlet property="nextButton" destination="iZq-US-ZMH" id="EQD-Sl-JLF"/>
                         <outlet property="usernameTextField" destination="OSL-dy-vPQ" id="iYp-tu-5lq"/>
+                        <segue destination="6MY-bl-2Ve" kind="show" identifier="toHome" id="NZl-IR-O8m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Hc-Z3-GiG" userLabel="First Responder" sceneMemberID="firstResponder"/>

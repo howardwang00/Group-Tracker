@@ -19,4 +19,8 @@ struct Constants {
         static let uid = "uid"
         static let current = "current"
     }
+    
+    struct Segue {
+        static let toHome = "toHome"
+    }
 }
