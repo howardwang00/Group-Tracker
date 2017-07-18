@@ -58,8 +58,7 @@ extension AppDelegate {
             
             print("User already logged in")
             User.setCurrent(user)
-            initialViewController = UIStoryboard.initialViewController(for: .createUsername)
-            //initialViewController = UIStoryboard.initialViewController(for: .main)
+            initialViewController = UIStoryboard.initialViewController(for: .home)
         } else {
             initialViewController = UIStoryboard.initialViewController(for: .createUsername)
         }
