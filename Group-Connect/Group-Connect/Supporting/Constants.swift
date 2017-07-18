@@ -21,6 +21,6 @@ struct Constants {
     }
     
     struct Segue {
-        static let toHome = "toHome"
+        static let toGroup = "toGroup"
     }
 }

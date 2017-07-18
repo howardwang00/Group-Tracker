@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wl2-0W-5eL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mzs-CQ-Fzl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -65,35 +65,17 @@
                     <connections>
                         <outlet property="nextButton" destination="iZq-US-ZMH" id="EQD-Sl-JLF"/>
                         <outlet property="usernameTextField" destination="OSL-dy-vPQ" id="iYp-tu-5lq"/>
-                        <segue destination="6MY-bl-2Ve" kind="show" identifier="toHome" id="NZl-IR-O8m"/>
+                        <segue destination="6MY-bl-2Ve" kind="show" identifier="toGroup" id="NZl-IR-O8m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Hc-Z3-GiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2631" y="375"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Cey-ak-7v8">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wl2-0W-5eL" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SWF-JD-Xs3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Mzs-CQ-Fzl" kind="relationship" relationship="rootViewController" id="YuI-wW-hOc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rh9-4a-hLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1764" y="375"/>
-        </scene>
-        <!--Home-->
+        <!--Group-->
         <scene sceneID="jpz-uN-k9L">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="6MY-bl-2Ve" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Group" id="6MY-bl-2Ve" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZM-dR-mny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3262" y="374"/>

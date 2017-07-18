@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GroupViewController.swift
 //  Group-Connect
 //
 //  Created by Howard Wang on 7/11/17.
@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GroupViewController: UIViewController {
+    @IBOutlet weak var hiUsernameLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        hiUsernameLabel.text = "Hi \(User.current.username)!"
     }
 
     override func didReceiveMemoryWarning() {

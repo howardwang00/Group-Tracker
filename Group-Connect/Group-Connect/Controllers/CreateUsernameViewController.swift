@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class CreateUsernameViewController: UIViewController {
+class CreateUsernameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -17,6 +17,9 @@ class CreateUsernameViewController: UIViewController {
         super.viewDidLoad()
         
         nextButton.layer.cornerRadius = 5
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,12 +49,18 @@ class CreateUsernameViewController: UIViewController {
                 User.setCurrent(user, writeToUserDefaults: true)
                 
                 print("Segue - ing")
-                self.performSegue(withIdentifier: Constants.Segue.toHome, sender: nil)
-//                let initialViewController = UIStoryboard.initialViewController(for: .main)
-//                self.view.window?.rootViewController = initialViewController
-//                self.view.window?.makeKeyAndVisible()
+                self.performSegue(withIdentifier: Constants.Segue.toGroup, sender: nil)
             }
         }
+    }
+    
+    func dismissKeyboard() {
+        usernameTextField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard()
+        return true
     }
 }
 
