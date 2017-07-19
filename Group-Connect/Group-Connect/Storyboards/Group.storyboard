@@ -81,11 +81,30 @@
                         <outlet property="groupCodeTextField" destination="a33-cR-P29" id="UdP-qS-e6p"/>
                         <outlet property="hiUsernameLabel" destination="rCe-hJ-1dJ" id="d01-7f-rub"/>
                         <outlet property="joinButton" destination="AY3-Gs-vF1" id="MN3-RE-m3h"/>
+                        <segue destination="KUe-BB-pOm" kind="show" identifier="toMap" id="Lwo-xi-RFw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JjK-oX-Bkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8466" y="357"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kSD-K6-2bn">
+            <objects>
+                <viewController id="KUe-BB-pOm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nQW-LB-w2J"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hgy-eT-40c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cl6-W2-DgP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W9k-81-7pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9257" y="357"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SxC-CA-zQs">

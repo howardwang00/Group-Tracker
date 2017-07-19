@@ -22,5 +22,6 @@ struct Constants {
     
     struct Segue {
         static let toGroup = "toGroup"
+        static let toMap = "toMap"
     }
 }

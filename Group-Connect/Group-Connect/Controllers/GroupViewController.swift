@@ -33,11 +33,19 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func joinButtonTapped(_ sender: Any) {
-        print(groupCodeTextField.text ?? "Group code is empty")
+        let text = groupCodeTextField.text ?? "Group code is empty"
+        print(text)
+        
+        //Guard let group code currently exists
+        
+        self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
     }
 
     @IBAction func createButtonTapped(_ sender: Any) {
         
+        //create group in firebase
+        
+        self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
     }
     
     func dismissKeyboard() {
