@@ -19,6 +19,7 @@
 		89913DA51F16CB2F009AA08C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913DA41F16CB2F009AA08C /* Constants.swift */; };
 		89CF44FD1F159C8B00C087D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF44FC1F159C8B00C087D5 /* AppDelegate.swift */; };
 		89CF45041F159C8B00C087D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89CF45031F159C8B00C087D5 /* Assets.xcassets */; };
+		89D46CEB1F1FDB10007D3434 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D46CEA1F1FDB10007D3434 /* MapViewController.swift */; };
 		E066EF07D701D837631CD45A /* Pods_Group_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5272907DD8A9FA9799DA19C /* Pods_Group_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		89CF44F91F159C8B00C087D5 /* Group-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Group-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CF44FC1F159C8B00C087D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CF45031F159C8B00C087D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89D46CEA1F1FDB10007D3434 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controllers/MapViewController.swift; sourceTree = "<group>"; };
 		D5272907DD8A9FA9799DA19C /* Pods_Group_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Group_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 			children = (
 				89913D901F16987E009AA08C /* CreateUsernameViewController.swift */,
 				89913D911F16987E009AA08C /* GroupViewController.swift */,
+				89D46CEA1F1FDB10007D3434 /* MapViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				89913D931F16987E009AA08C /* GroupViewController.swift in Sources */,
 				89913D921F16987E009AA08C /* CreateUsernameViewController.swift in Sources */,
 				89CF44FD1F159C8B00C087D5 /* AppDelegate.swift in Sources */,
+				89D46CEB1F1FDB10007D3434 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
