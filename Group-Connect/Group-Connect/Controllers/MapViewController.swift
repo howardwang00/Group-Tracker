@@ -73,7 +73,7 @@ extension MapViewController: CLLocationManagerDelegate {
             print("Location status not determined")
         case .authorizedAlways: fallthrough
         case .authorizedWhenInUse:
-            print("Location status is OK: Authorized when app in use only.")
+            print("Location status is OK.")
         }
     }
     
