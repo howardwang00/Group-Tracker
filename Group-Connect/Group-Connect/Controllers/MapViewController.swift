@@ -11,7 +11,32 @@ import GoogleMaps
 
 class MapViewController: UIViewController {
     
+    var locationManager = CLLocationManager()
+    var mapView: GMSMapView!
+    var zoomLevel: Float = 15.0
+    
+    // A default location to use when location permission is not granted.
+    let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
+    
     override func viewDidLoad() {
+        //initialize the location manager
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        
+        
+        let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude, longitude: defaultLocation.coordinate.longitude, zoom: zoomLevel)
+        mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
+        mapView.settings.myLocationButton = true
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.isMyLocationEnabled = true
+        
+        view.addSubview(mapView)
+        mapView.isHidden = true //hides until location is updated
+        
         super.viewDidLoad()
     }
     
@@ -19,18 +44,43 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
-    override func loadView() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Current Location: \(location)")
         
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sidney"
-        marker.snippet = "Australia"
-        marker.map = mapView
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
+        
+        if mapView.isHidden {
+            mapView.isHidden = false
+            mapView.camera = camera
+        } else {
+            mapView.animate(to: camera)
+        }
         
     }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location")
+            mapView.isHidden = false    //display the map with the default location
+        case .notDetermined:
+            print("Location status not determined")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK: Authorized when app in use only.")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
 }
+
+

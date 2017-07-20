@@ -8,10 +8,12 @@
 
 import Foundation
 import FirebaseDatabase.FIRDataSnapshot
+import GoogleMaps
 
 class User: NSObject {
     let uid: String
     let username: String
+    var currentLocation: CLLocation?
     
     private static var _current: User?
     
@@ -37,16 +39,6 @@ class User: NSObject {
         
         super.init()
     }
-    
-    /*
-    init?(snapshot: DataSnapshot) {
-        guard let username = snapshot.value as? String
-            else { return nil }
-        
-        self.username = username
-        
-        super.init()
-    }*/
     
     required init?(coder aDecoder: NSCoder) {
         guard let uid = aDecoder.decodeObject(forKey: Constants.User.uid) as? String,
