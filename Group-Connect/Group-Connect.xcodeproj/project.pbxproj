@@ -10,6 +10,7 @@
 		892607001F1D70C1001EDE35 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892606FF1F1D70C1001EDE35 /* Group.storyboard */; };
 		892698C31F1979F100A52AA5 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892698C21F1979F100A52AA5 /* Storyboard.swift */; };
 		892A07A51F17D8B100B3D8EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A07A41F17D8B100B3D8EF /* User.swift */; };
+		8945DDF41F215ECD009A63DD /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945DDF31F215ECD009A63DD /* GroupService.swift */; };
 		89913D921F16987E009AA08C /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D901F16987E009AA08C /* CreateUsernameViewController.swift */; };
 		89913D931F16987E009AA08C /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D911F16987E009AA08C /* GroupViewController.swift */; };
 		89913D991F169893009AA08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89913D961F169893009AA08C /* LaunchScreen.storyboard */; };
@@ -29,6 +30,7 @@
 		892606FF1F1D70C1001EDE35 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Group.storyboard; path = Storyboards/Group.storyboard; sourceTree = "<group>"; };
 		892698C21F1979F100A52AA5 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboard.swift; path = Extensions/Storyboard.swift; sourceTree = "<group>"; };
 		892A07A41F17D8B100B3D8EF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		8945DDF31F215ECD009A63DD /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupService.swift; path = Services/GroupService.swift; sourceTree = "<group>"; };
 		89913D901F16987E009AA08C /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		89913D911F16987E009AA08C /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = Controllers/GroupViewController.swift; sourceTree = "<group>"; };
 		89913D961F169893009AA08C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				89913DA11F16C9CF009AA08C /* UserService.swift */,
+				8945DDF31F215ECD009A63DD /* GroupService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89913DA51F16CB2F009AA08C /* Constants.swift in Sources */,
+				8945DDF41F215ECD009A63DD /* GroupService.swift in Sources */,
 				89913DA21F16C9CF009AA08C /* UserService.swift in Sources */,
 				892A07A51F17D8B100B3D8EF /* User.swift in Sources */,
 				892698C31F1979F100A52AA5 /* Storyboard.swift in Sources */,

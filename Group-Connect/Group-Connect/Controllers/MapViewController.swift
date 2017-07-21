@@ -15,9 +15,6 @@ class MapViewController: UIViewController {
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
     
-    // A default location to use when location permission is not granted.
-    let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
-    
     override func viewDidLoad() {
         //initialize the location manager
         locationManager = CLLocationManager()
@@ -28,7 +25,7 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         
         
-        let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude, longitude: defaultLocation.coordinate.longitude, zoom: zoomLevel)
+        let camera = GMSCameraPosition.camera(withLatitude: User.defaultLocation.coordinate.latitude, longitude: User.defaultLocation.coordinate.longitude, zoom: zoomLevel)
         mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
         mapView.settings.myLocationButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -50,6 +47,10 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
         print("Current Location: \(location)")
+        
+        //Update Current Location
+        User.updateLocation(location)
+        print("Updated location")
         
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
         

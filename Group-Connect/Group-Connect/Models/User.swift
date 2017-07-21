@@ -14,6 +14,10 @@ class User: NSObject {
     let uid: String
     let username: String
     var currentLocation: CLLocation?
+    var groupCode: String?
+    
+    // A default location to use when location permission is not granted.
+    static let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
     
     private static var _current: User?
     
@@ -31,6 +35,27 @@ class User: NSObject {
             print("Set current user in UserDefaults")
         }
         _current = user
+    }
+    
+    static func setGroup(_ groupCode: String) {
+        current.groupCode = groupCode
+    }
+    
+    static func updateLocation(_ location: CLLocation) {
+        current.currentLocation = location
+        
+        guard let currentLocation = current.currentLocation,
+            let groupCode = current.groupCode else { return }
+        
+        print("Updating location in firebase")
+        let ref = Database.database().reference().child(Constants.groups).child(groupCode).child(current.uid)
+        let locationDict = [Constants.Location.latitude : currentLocation.coordinate.latitude, Constants.Location.longitude : currentLocation.coordinate.longitude]
+        
+        ref.updateChildValues(locationDict) { (error, _) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+            }
+        }
     }
     
     init(uid: String, username: String) {
