@@ -47,7 +47,7 @@ class User: NSObject {
         guard let currentLocation = current.currentLocation,
             let groupCode = current.groupCode else { return }
         
-        print("Updating location in firebase")
+        //print("Updating location in firebase")
         let ref = Database.database().reference().child(Constants.groups).child(groupCode).child(current.uid)
         let locationDict = [Constants.Location.latitude : currentLocation.coordinate.latitude, Constants.Location.longitude : currentLocation.coordinate.longitude]
         
