@@ -12,10 +12,16 @@ import FirebaseDatabase
 
 struct GroupService {
     
-    static func createGroup(completion: @escaping (String?) -> Void) {
+    static func createGroup() {
         let ref = Database.database().reference().child(Constants.groups)
         
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if !snapshot.exists() {
+                let groupCode = randomString()
+                updateGroup(groupCode, ref)
+                return
+            }
+            
             guard let groupDict = snapshot.value as? [String: Any?] else {
                 return
             }
@@ -30,17 +36,7 @@ struct GroupService {
                     groupCode = random
                 }
             }
-            
-            let coordinateDict = [Constants.Location.latitude : User.defaultLocation.coordinate.latitude, Constants.Location.longitude : User.defaultLocation.coordinate.longitude]
-            
-            let groupData = ["\(groupCode!)/\(User.current.uid)" : coordinateDict]
-            
-            ref.updateChildValues(groupData) { (error, _) in
-                if let error = error {
-                    assertionFailure(error.localizedDescription)
-                }
-                completion(groupCode)
-            }
+            updateGroup(groupCode!, ref)
         })
         
     }
@@ -50,11 +46,24 @@ struct GroupService {
         let letters: NSString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let len = UInt32(letters.length)
         
-        for _ in 0 ..< 1 {
+        for _ in 0 ..< 4 {
             let rand = arc4random_uniform(len)
             var nextChar = letters.character(at: Int(rand))
             randomString += NSString(characters: &nextChar, length: 1) as String
         }
         return randomString
+    }
+    
+    private static func updateGroup(_ groupCode: String, _ ref: DatabaseReference) {
+        let coordinateDict = [Constants.Location.latitude : User.defaultLocation.coordinate.latitude, Constants.Location.longitude : User.defaultLocation.coordinate.longitude]
+        
+        let groupData = ["\(groupCode)/\(User.current.uid)" : coordinateDict]
+        
+        ref.updateChildValues(groupData) { (error, _) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+            }
+            User.setGroup(groupCode)
+        }
     }
 }
