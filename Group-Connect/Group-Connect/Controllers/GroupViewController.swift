@@ -45,7 +45,12 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
         
         //create group in firebase
         
-        GroupService.createGroup()
+        GroupService.createGroup { (groupCode) in
+            guard let groupCode = groupCode else { return }
+            print("New Group: \(groupCode)")
+            
+            User.setGroup(groupCode)
+        }
         
         self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
     }

@@ -12,36 +12,34 @@ import FirebaseDatabase
 
 struct GroupService {
     
-    static func createGroup() {
+    static func createGroup(completion: @escaping (String?) -> Void) {
         let ref = Database.database().reference().child(Constants.groups)
         
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+            guard let groupDict = snapshot.value as? [String: Any?] else {
                 return
             }
+            print(groupDict)
             
-            let groupCodes = snapshot.flatMap { return $0.key }
-            print(groupCodes)
-            
-            var newCode: String?
+            var groupCode: String?
             var valid = false
             while !valid {
-                newCode = randomString()
-                valid = checkCode(newCode!, groupCodes)
+                let random = randomString()
+                if groupDict[random] == nil {
+                    valid = true
+                    groupCode = random
+                }
             }
-            
-            print("New Group: \(newCode!)\n")
             
             let coordinateDict = [Constants.Location.latitude : User.defaultLocation.coordinate.latitude, Constants.Location.longitude : User.defaultLocation.coordinate.longitude]
             
-            let groupData = ["\(newCode!)/\(User.current.uid)" : coordinateDict]
+            let groupData = ["\(groupCode!)/\(User.current.uid)" : coordinateDict]
             
-            print("Updating Location in Firebase")
             ref.updateChildValues(groupData) { (error, _) in
                 if let error = error {
                     assertionFailure(error.localizedDescription)
                 }
-                User.setGroup(newCode!)
+                completion(groupCode)
             }
         })
         
@@ -58,21 +56,5 @@ struct GroupService {
             randomString += NSString(characters: &nextChar, length: 1) as String
         }
         return randomString
-    }
-    
-    private static func checkCode(_ code: String, _ groupCodes: [String]) -> Bool {
-        if groupCodes.isEmpty {
-            return true
-        } else {
-            var valid = true
-            for groupCode in groupCodes {
-                if code == groupCode {
-                    print("INVALID\n")
-                    valid = false
-                    break
-                }
-            }
-            return valid
-        }
     }
 }
