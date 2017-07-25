@@ -57,8 +57,14 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! MapViewController
-        dest.groupCode = self.groupCode
+        if segue.identifier == Constants.Segue.toMap {
+            let dest = segue.destination as! MapViewController
+            dest.groupCode = self.groupCode
+        }
+    }
+    
+    @IBAction func unwindToGroupViewController(_ segue: UIStoryboardSegue) {
+        
     }
     
     func dismissKeyboard() {

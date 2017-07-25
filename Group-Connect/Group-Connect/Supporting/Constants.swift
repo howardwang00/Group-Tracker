@@ -24,6 +24,7 @@ struct Constants {
     struct Segue {
         static let toGroup = "toGroup"
         static let toMap = "toMap"
+        static let leaveGroup = "leaveGroup"
     }
     
     struct Location {

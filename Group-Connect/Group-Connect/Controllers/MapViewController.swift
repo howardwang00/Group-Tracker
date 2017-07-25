@@ -43,6 +43,9 @@ class MapViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    @IBAction func leaveGroupButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: Constants.Segue.leaveGroup, sender: nil)
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {

@@ -113,8 +113,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ayi-cZ-ckA">
+                        <barButtonItem key="leftBarButtonItem" title="Leave Group" id="i9n-lD-M5C">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="leaveGroupButtonTapped:" destination="KUe-BB-pOm" id="Cm0-WO-dHX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="f7g-Dl-tWf" kind="unwind" identifier="leaveGroup" unwindAction="unwindToGroupViewController:" id="aYZ-Mq-vgI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9k-81-7pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="f7g-Dl-tWf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="9206" y="357"/>
         </scene>
