@@ -14,6 +14,7 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var groupCodeTextField: UITextField!
     @IBOutlet weak var createButton: UIButton!
     
+    var groupCode = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,18 +37,28 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
         guard let code = groupCodeTextField.text else { return }
         print(code)
         
-        //check if group code is valid
+        
         
         //self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
     }
 
     @IBAction func createButtonTapped(_ sender: Any) {
+        let dispatchGroup = DispatchGroup()
         
-        //create group in firebase
+        dispatchGroup.enter()
+        GroupService.createGroup { (groupCode) in
+            self.groupCode = groupCode
+            dispatchGroup.leave()
+        }
         
-        GroupService.createGroup()
-        
-        self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
+        dispatchGroup.notify(queue: .main) { 
+            self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as! MapViewController
+        dest.groupCode = self.groupCode
     }
     
     func dismissKeyboard() {

@@ -12,10 +12,13 @@ import GoogleMaps
 class MapViewController: UIViewController {
     
     var locationManager = CLLocationManager()
+    var groupCode = ""
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
     
     override func viewDidLoad() {
+        self.title = "Group Code: \(groupCode)"
+        
         //initialize the location manager
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -40,7 +43,6 @@ class MapViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -50,7 +52,6 @@ extension MapViewController: CLLocationManagerDelegate {
         
         //Update Current Location
         User.updateLocation(location)
-        //print("Updated location")
         
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
         

@@ -11,14 +11,14 @@ import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
 struct GroupService {
-    
-    static func createGroup() {
+    static func createGroup(completion: @escaping (String) -> ()) {
         let ref = Database.database().reference().child(Constants.groups)
         
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             if !snapshot.exists() {
                 let groupCode = randomString()
-                updateGroup(groupCode, ref)
+                writeGroupToFirebase(groupCode, ref)
+                completion(groupCode)
                 return
             }
             
@@ -36,7 +36,8 @@ struct GroupService {
                     groupCode = random
                 }
             }
-            updateGroup(groupCode!, ref)
+            writeGroupToFirebase(groupCode!, ref)
+            completion(groupCode!)
         })
         
     }
@@ -54,7 +55,7 @@ struct GroupService {
         return randomString
     }
     
-    private static func updateGroup(_ groupCode: String, _ ref: DatabaseReference) {
+    private static func writeGroupToFirebase(_ groupCode: String, _ ref: DatabaseReference) {
         let coordinateDict = [Constants.Location.latitude : User.defaultLocation.coordinate.latitude, Constants.Location.longitude : User.defaultLocation.coordinate.longitude]
         
         let groupData = ["\(groupCode)/\(User.current.uid)" : coordinateDict]
