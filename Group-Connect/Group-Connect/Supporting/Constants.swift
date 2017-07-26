@@ -22,7 +22,7 @@ struct Constants {
     }
     
     struct Segue {
-        static let toGroup = "toGroup"
+        static let toMain = "toMain"
         static let toMap = "toMap"
         static let leaveGroup = "leaveGroup"
     }

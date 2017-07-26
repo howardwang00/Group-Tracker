@@ -49,7 +49,7 @@ class CreateUsernameViewController: UIViewController, UITextFieldDelegate {
                 User.setCurrent(user, writeToUserDefaults: true)
                 
                 print("Segue - ing")
-                self.performSegue(withIdentifier: Constants.Segue.toGroup, sender: nil)
+                self.performSegue(withIdentifier: Constants.Segue.toMain, sender: nil)
             }
         }
     }

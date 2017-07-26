@@ -10,8 +10,8 @@ import UIKit
 
 extension UIStoryboard {
     enum MGType: String {
-        case group
         case createUsername
+        case main
         var filename: String {
             return rawValue.capitalized
         }

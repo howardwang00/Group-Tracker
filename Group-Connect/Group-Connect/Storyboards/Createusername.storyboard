@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mzs-CQ-Fzl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mzs-CQ-Fzl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Y-4p-4m6">
-                                <rect key="frame" x="15" y="84" width="345" height="113.5"/>
+                                <rect key="frame" x="15" y="40" width="345" height="113.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
                                 <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZq-US-ZMH">
-                                <rect key="frame" x="87.5" y="277.5" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.68235294120000001" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mep-pV-SmY"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-dy-vPQ">
-                                <rect key="frame" x="30" y="217.5" width="315" height="30"/>
+                                <rect key="frame" x="30" y="173.5" width="315" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.68235294120000001" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -65,18 +65,18 @@
                     <connections>
                         <outlet property="nextButton" destination="iZq-US-ZMH" id="EQD-Sl-JLF"/>
                         <outlet property="usernameTextField" destination="OSL-dy-vPQ" id="iYp-tu-5lq"/>
-                        <segue destination="6MY-bl-2Ve" kind="show" identifier="toGroup" id="NZl-IR-O8m"/>
+                        <segue destination="6MY-bl-2Ve" kind="show" identifier="toMain" id="NZl-IR-O8m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Hc-Z3-GiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2631" y="375"/>
         </scene>
-        <!--Group-->
+        <!--Main-->
         <scene sceneID="jpz-uN-k9L">
             <objects>
-                <viewControllerPlaceholder storyboardName="Group" id="6MY-bl-2Ve" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZM-dR-mny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Main" id="6MY-bl-2Ve" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="3262" y="374"/>
         </scene>
