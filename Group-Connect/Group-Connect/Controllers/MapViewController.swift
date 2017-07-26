@@ -44,6 +44,8 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     @IBAction func leaveGroupButtonTapped(_ sender: Any) {
+        GroupService.leaveGroup()
+        
         self.performSegue(withIdentifier: Constants.Segue.leaveGroup, sender: nil)
     }
 }

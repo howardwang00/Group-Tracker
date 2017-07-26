@@ -22,9 +22,7 @@ struct GroupService {
                 return
             }
             
-            guard let groupDict = snapshot.value as? [String: Any?] else {
-                return
-            }
+            guard let groupDict = snapshot.value as? [String: Any?] else { return }
             print(groupDict)
             
             var groupCode: String?
@@ -66,5 +64,17 @@ struct GroupService {
             }
             User.setGroup(groupCode)
         }
+    }
+    
+    static func leaveGroup() {
+        guard let groupCode = User.current.groupCode else {
+            print("Error: Current Group Code Does Not Exist")
+            return
+        }
+        
+        let ref = Database.database().reference().child(Constants.groups).child(groupCode)
+        
+        ref.child(User.current.uid).removeValue()
+        User.current.groupCode = nil
     }
 }
