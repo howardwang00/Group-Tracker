@@ -21,34 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi Username!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCe-hJ-1dJ">
-                                <rect key="frame" x="10" y="84" width="355.5" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-Gs-vF1">
-                                <rect key="frame" x="50" y="145" width="275" height="100"/>
-                                <color key="backgroundColor" red="0.0" green="0.3220486111111111" blue="0.88897026909722221" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="anR-MT-iOv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="JOIN">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="joinButtonTapped:" destination="2wV-JL-qMC" eventType="touchUpInside" id="vFr-kk-Za9"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAT-KR-7mr">
-                                <rect key="frame" x="166.5" y="451" width="41" height="36"/>
+                                <rect key="frame" x="166.5" y="344" width="41" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSF-mz-BD6">
-                                <rect key="frame" x="50" y="537" width="274" height="100"/>
+                                <rect key="frame" x="50" y="430" width="274" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.32204861109999999" blue="0.88897026909999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Rxl-Sa-3Mg"/>
@@ -61,29 +41,43 @@
                                     <action selector="createButtonTapped:" destination="2wV-JL-qMC" eventType="touchUpInside" id="puL-qg-MUe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a33-cR-P29">
-                                <rect key="frame" x="50" y="295" width="274.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a33-cR-P29">
+                                <rect key="frame" x="112" y="114" width="150.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="YkZ-bd-Q7T"/>
+                                    <constraint firstAttribute="height" constant="50" id="kuC-tJ-EJZ"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-Gs-vF1">
+                                <rect key="frame" x="50" y="194" width="275" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.3220486111111111" blue="0.88897026909722221" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="anR-MT-iOv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="JOIN">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="joinButtonTapped:" destination="2wV-JL-qMC" eventType="touchUpInside" id="vFr-kk-Za9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rCe-hJ-1dJ" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="10" id="6NZ-H1-YQe"/>
-                            <constraint firstItem="rCe-hJ-1dJ" firstAttribute="top" secondItem="eYh-aP-p2S" secondAttribute="bottom" constant="20" id="6f8-Dp-eBF"/>
-                            <constraint firstItem="nEV-e0-c8u" firstAttribute="top" secondItem="fSF-mz-BD6" secondAttribute="bottom" constant="30" id="8bg-Nl-sF9"/>
                             <constraint firstItem="fSF-mz-BD6" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="8rX-1v-237"/>
                             <constraint firstItem="nAT-KR-7mr" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="9A0-oj-pWa"/>
                             <constraint firstItem="fSF-mz-BD6" firstAttribute="top" secondItem="nAT-KR-7mr" secondAttribute="bottom" constant="50" id="AwM-1m-WCQ"/>
-                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="50" id="IDS-da-Hjg"/>
-                            <constraint firstItem="rCe-hJ-1dJ" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="WaX-Fc-hO6"/>
-                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="aKB-vi-eeF"/>
-                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="top" secondItem="rCe-hJ-1dJ" secondAttribute="bottom" constant="25" id="b40-4k-0HP"/>
-                            <constraint firstItem="a33-cR-P29" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="50" id="bnp-1P-sEf"/>
+                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="50" id="SV7-fy-WdF"/>
                             <constraint firstItem="fSF-mz-BD6" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="50" id="cfB-uA-QQw"/>
-                            <constraint firstItem="a33-cR-P29" firstAttribute="top" secondItem="AY3-Gs-vF1" secondAttribute="bottom" constant="50" id="d6s-f3-UnP"/>
+                            <constraint firstItem="a33-cR-P29" firstAttribute="top" secondItem="eYh-aP-p2S" secondAttribute="bottom" constant="50" id="dbW-Mz-kSg"/>
+                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="top" secondItem="a33-cR-P29" secondAttribute="bottom" constant="30" id="gQ1-sI-SXe"/>
+                            <constraint firstItem="nAT-KR-7mr" firstAttribute="top" secondItem="AY3-Gs-vF1" secondAttribute="bottom" constant="50" id="lK3-0U-22q"/>
                             <constraint firstItem="a33-cR-P29" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="rcN-Ig-ddR"/>
+                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="sTf-Lw-ZMi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fPg-w5-ONX"/>
@@ -91,7 +85,6 @@
                     <connections>
                         <outlet property="createButton" destination="fSF-mz-BD6" id="FH2-RF-z2n"/>
                         <outlet property="groupCodeTextField" destination="a33-cR-P29" id="UdP-qS-e6p"/>
-                        <outlet property="hiUsernameLabel" destination="rCe-hJ-1dJ" id="d01-7f-rub"/>
                         <outlet property="joinButton" destination="AY3-Gs-vF1" id="MN3-RE-m3h"/>
                         <segue destination="KUe-BB-pOm" kind="show" identifier="toMap" id="Lwo-xi-RFw"/>
                     </connections>

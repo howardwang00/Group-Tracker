@@ -20,9 +20,11 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        hiUsernameLabel.text = "Hi \(User.current.username)!"
-        joinButton.layer.cornerRadius = 5
-        createButton.layer.cornerRadius = 5
+        self.title = "Hi \(User.current.username)!"
+        self.joinButton.layer.cornerRadius = 5
+        self.createButton.layer.cornerRadius = 5
+        
+        //self.groupCodeTextField.autocapitalizationType = UITextAutocapitalizationType.words
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
