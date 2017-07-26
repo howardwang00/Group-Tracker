@@ -34,12 +34,17 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func joinButtonTapped(_ sender: Any) {
-        guard let code = groupCodeTextField.text else { return }
-        print(code)
+        guard let groupCode = groupCodeTextField.text else { return }
         
-        
-        
-        //self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        GroupService.joinGroup(groupCode: groupCode) { () in
+            self.groupCode = groupCode
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: .main) {
+            self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
+        }
     }
 
     @IBAction func createButtonTapped(_ sender: Any) {

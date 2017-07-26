@@ -11,13 +11,13 @@ import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
 struct GroupService {
-    static func createGroup(completion: @escaping (String) -> ()) {
+    static func createGroup(completion: @escaping (String) -> Void) {
         let ref = Database.database().reference().child(Constants.groups)
         
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             if !snapshot.exists() {
                 let groupCode = randomString()
-                writeGroupToFirebase(groupCode, ref)
+                writeGroupInfoToFirebase(groupCode, ref)
                 completion(groupCode)
                 return
             }
@@ -34,7 +34,7 @@ struct GroupService {
                     groupCode = random
                 }
             }
-            writeGroupToFirebase(groupCode!, ref)
+            writeGroupInfoToFirebase(groupCode!, ref)
             completion(groupCode!)
         })
         
@@ -53,7 +53,7 @@ struct GroupService {
         return randomString
     }
     
-    private static func writeGroupToFirebase(_ groupCode: String, _ ref: DatabaseReference) {
+    private static func writeGroupInfoToFirebase(_ groupCode: String, _ ref: DatabaseReference) {
         let coordinateDict = [Constants.Location.latitude : User.defaultLocation.coordinate.latitude, Constants.Location.longitude : User.defaultLocation.coordinate.longitude]
         
         let groupData = ["\(groupCode)/\(User.current.uid)" : coordinateDict]
@@ -64,6 +64,20 @@ struct GroupService {
             }
             User.setGroup(groupCode)
         }
+    }
+    
+    static func joinGroup(groupCode: String, completion: @escaping (Void) -> Void) {
+        let ref = Database.database().reference().child(Constants.groups)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let groupDict = snapshot.value as? [String: Any?] else { return }
+            
+            if groupDict[groupCode] != nil {
+                print("Group Currently Exists")
+                writeGroupInfoToFirebase(groupCode, ref)
+                completion()
+            }
+        })
     }
     
     static func leaveGroup() {
