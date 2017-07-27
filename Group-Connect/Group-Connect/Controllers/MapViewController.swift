@@ -34,6 +34,25 @@ class MapViewController: UIViewController {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
         
+        LocationService.retrieveGroupLocations { (groupLocations) in
+            self.mapView.clear()
+            
+            print(groupLocations.keys)
+            for userID in groupLocations.keys {
+                guard let location = groupLocations[userID],
+                    let latitude = location[Constants.Location.latitude],
+                    let longitude = location[Constants.Location.longitude]
+                    else { return }
+                
+                print("Showing member position")
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                //marker.title = ""
+                
+                marker.map = self.mapView
+            }
+        }
+        
         view.addSubview(mapView)
         mapView.isHidden = true //hides until location is updated
         
@@ -61,13 +80,13 @@ extension MapViewController: CLLocationManagerDelegate {
         
         LocationService.updateLocation(location)
         
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
+        //let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
         
         if mapView.isHidden {
             mapView.isHidden = false
-            mapView.camera = camera
+            mapView.camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
         } else {
-            mapView.animate(to: camera)
+            //mapView.animate(to: camera)
         }
         
     }
