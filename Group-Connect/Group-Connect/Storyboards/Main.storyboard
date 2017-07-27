@@ -12,7 +12,7 @@
         <!--Group View Controller-->
         <scene sceneID="Ocg-ix-cr0">
             <objects>
-                <viewController id="2wV-JL-qMC" customClass="GroupViewController" customModule="Group_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupViewController" id="2wV-JL-qMC" customClass="GroupViewController" customModule="Group_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eYh-aP-p2S"/>
                         <viewControllerLayoutGuide type="bottom" id="nEV-e0-c8u"/>
@@ -96,7 +96,7 @@
         <!--Map View Controller-->
         <scene sceneID="kSD-K6-2bn">
             <objects>
-                <viewController id="KUe-BB-pOm" customClass="MapViewController" customModule="Group_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="KUe-BB-pOm" customClass="MapViewController" customModule="Group_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nQW-LB-w2J"/>
                         <viewControllerLayoutGuide type="bottom" id="Hgy-eT-40c"/>

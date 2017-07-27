@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        configureRootViewController(for: window)
-        
         GMSServices.provideAPIKey("AIzaSyCOXilgL3mzTK3rtB7jbuvsNtl8bpeP4VU")
+        
+        configureRootViewController(for: window)
         
         return true
     }
@@ -61,6 +61,8 @@ extension AppDelegate {
             
             print("User already logged in")
             User.setCurrent(user)
+            print("Group Code: \(User.current.groupCode ?? "nil")")
+            
             initialViewController = UIStoryboard.initialViewController(for: .main)
         } else {
             initialViewController = UIStoryboard.initialViewController(for: .createUsername)

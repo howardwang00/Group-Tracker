@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupViewController: UIViewController, UITextFieldDelegate {
+class GroupViewController: UIViewController {
     @IBOutlet weak var hiUsernameLabel: UILabel!
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var groupCodeTextField: UITextField!
@@ -20,11 +20,14 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        if let groupCode = User.current.groupCode {
+            print("User already in group")
+            reenterGroup(groupCode: groupCode)
+        }
+        
         self.title = "Hi \(User.current.username)!"
         self.joinButton.layer.cornerRadius = 5
         self.createButton.layer.cornerRadius = 5
-        
-        //self.groupCodeTextField.autocapitalizationType = UITextAutocapitalizationType.words
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
@@ -74,6 +77,14 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    private func reenterGroup(groupCode: String) {
+        self.groupCode = groupCode
+        self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
+    }
+    
+}
+
+extension GroupViewController: UITextFieldDelegate {
     func dismissKeyboard() {
         groupCodeTextField.resignFirstResponder()
     }
@@ -82,6 +93,5 @@ class GroupViewController: UIViewController, UITextFieldDelegate {
         dismissKeyboard()
         return true
     }
-    
 }
 

@@ -37,8 +37,12 @@ class User: NSObject {
         _current = user
     }
     
-    static func setGroup(_ groupCode: String) {
+    static func setGroup(_ groupCode: String?) {
         current.groupCode = groupCode
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: User.current)
+        UserDefaults.standard.set(data, forKey: Constants.User.current)
+        print("Set current groupCode \(groupCode ?? "nil")")
     }
     
     static func updateLocation(_ location: CLLocation) {
@@ -73,6 +77,10 @@ class User: NSObject {
         self.uid = uid
         self.username = username
         
+        if let groupCode = aDecoder.decodeObject(forKey: Constants.User.groupCode) as? String {
+            self.groupCode = groupCode
+        }
+        
         super.init()
     }
 }
@@ -81,5 +89,6 @@ extension User: NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(uid, forKey: Constants.User.uid)
         aCoder.encode(username, forKey: Constants.User.username)
+        aCoder.encode(groupCode, forKey: Constants.User.groupCode)
     }
 }

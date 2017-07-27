@@ -18,6 +18,7 @@ struct Constants {
     struct User {
         static let username = "username"
         static let uid = "uid"
+        static let groupCode = "groupCode"
         static let current = "current"
     }
     
@@ -30,5 +31,11 @@ struct Constants {
     struct Location {
         static let latitude = "latitude"
         static let longitude = "longitude"
+    }
+    
+    struct Storyboard {
+        static let main = "Main"
+        static let group = "GroupViewController"
+        static let map = "MapViewController"
     }
 }

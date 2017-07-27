@@ -89,6 +89,6 @@ struct GroupService {
         let ref = Database.database().reference().child(Constants.groups).child(groupCode)
         
         ref.child(User.current.uid).removeValue()
-        User.current.groupCode = nil
+        User.setGroup(nil)
     }
 }
