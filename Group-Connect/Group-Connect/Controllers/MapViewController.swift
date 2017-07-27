@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     var groupCode = ""
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
+    var groupObserver: UInt?
     
     override func viewDidLoad() {
         self.title = "Group Code: \(groupCode)"
@@ -34,11 +35,19 @@ class MapViewController: UIViewController {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
         
-        LocationService.retrieveGroupLocations { (groupLocations) in
+        LocationService.retrieveGroupLocations(returnObserver: { (observer) in
+            groupObserver = observer
+        }) { (groupLocations) in
+            print("Retrieved Group Locations")
+            
             self.mapView.clear()
             
             print(groupLocations.keys)
             for userID in groupLocations.keys {
+                if userID == User.current.uid {
+                    return
+                }
+                
                 guard let location = groupLocations[userID],
                     let latitude = location[Constants.Location.latitude],
                     let longitude = location[Constants.Location.longitude]
@@ -47,7 +56,10 @@ class MapViewController: UIViewController {
                 print("Showing member position")
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                //marker.title = ""
+                
+                
+                marker.title = "Nachos"
+                marker.snippet = userID
                 
                 marker.map = self.mapView
             }
@@ -65,13 +77,14 @@ class MapViewController: UIViewController {
     @IBAction func leaveGroupButtonTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "Leave Group Confirmation", message: "Are you sure you want to leave your group?", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Leave", style: UIAlertActionStyle.destructive, handler: { action in
-            GroupService.leaveGroup()
+            GroupService.leaveGroup(observer: self.groupObserver)
             self.performSegue(withIdentifier: Constants.Segue.leaveGroup, sender: nil)
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
 }
 
 extension MapViewController: CLLocationManagerDelegate {

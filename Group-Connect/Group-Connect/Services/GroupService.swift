@@ -81,13 +81,18 @@ struct GroupService {
         })
     }
     
-    static func leaveGroup() {
+    static func leaveGroup(observer: UInt?) {
         guard let groupCode = User.current.groupCode else {
             print("Error: Current Group Code Does Not Exist")
             return
         }
         
         let ref = Database.database().reference().child(Constants.groups).child(groupCode)
+        
+        if let observer = observer {
+            ref.removeObserver(withHandle: observer)
+            print("Removed Group Observer")
+        }
         
         ref.child(User.current.uid).removeValue()
         User.setGroup(nil)

@@ -25,14 +25,15 @@ struct LocationService {
         }
     }
     
-    static func retrieveGroupLocations(completion: @escaping ([String: [String: CLLocationDegrees]]) -> Void) {
+    static func retrieveGroupLocations(returnObserver: (UInt) -> Void, completion: @escaping ([String: [String: CLLocationDegrees]]) -> Void) {
         guard let groupCode = User.current.groupCode else { return }
         let ref = Database.database().reference().child(Constants.groups).child(groupCode)
-        ref.observe(.value, with: { (snapshot) in
+        let observer = ref.observe(.value, with: { (snapshot) in
             guard let groupDict = snapshot.value as? [String: [String: CLLocationDegrees]] else {
                 fatalError("Group Information Does not Exist")
             }
             completion(groupDict)
         })
+        returnObserver(observer)
     }
 }

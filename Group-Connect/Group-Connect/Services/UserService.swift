@@ -11,7 +11,6 @@ import FirebaseDatabase
 import FirebaseAuth.FIRUser
 
 struct UserService {
-    
     static func createUser(_ firebaseUser: FirebaseAuth.User, username: String, completion: @escaping (User?) -> Void) {
         let ref = Database.database().reference().child(Constants.users).child(firebaseUser.uid)
         let userAttributes = [Constants.User.username : username]
@@ -27,7 +26,5 @@ struct UserService {
             let user = User(uid: firebaseUser.uid, username: username)
             completion(user)
         }
-        
-        
     }
 }

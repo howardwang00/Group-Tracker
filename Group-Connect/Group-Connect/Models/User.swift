@@ -41,7 +41,7 @@ class User: NSObject {
         
         let data = NSKeyedArchiver.archivedData(withRootObject: User.current)
         UserDefaults.standard.set(data, forKey: Constants.User.current)
-        print("Set current groupCode \(groupCode ?? "nil")")
+        print("Set current groupCode to \(groupCode ?? "nil")")
     }
     
     init(uid: String, username: String) {
