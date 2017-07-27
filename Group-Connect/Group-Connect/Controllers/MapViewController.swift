@@ -44,9 +44,14 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     @IBAction func leaveGroupButtonTapped(_ sender: Any) {
-        GroupService.leaveGroup()
+        let alertController = UIAlertController(title: "Leave Group Confirmation", message: "Are you sure you want to leave your group?", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Leave", style: UIAlertActionStyle.destructive, handler: { action in
+            GroupService.leaveGroup()
+            self.performSegue(withIdentifier: Constants.Segue.leaveGroup, sender: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         
-        self.performSegue(withIdentifier: Constants.Segue.leaveGroup, sender: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
