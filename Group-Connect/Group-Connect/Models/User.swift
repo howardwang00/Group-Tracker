@@ -13,7 +13,6 @@ import GoogleMaps
 class User: NSObject {
     let uid: String
     let username: String
-    var currentLocation: CLLocation?
     var groupCode: String?
     
     // A default location to use when location permission is not granted.
@@ -43,23 +42,6 @@ class User: NSObject {
         let data = NSKeyedArchiver.archivedData(withRootObject: User.current)
         UserDefaults.standard.set(data, forKey: Constants.User.current)
         print("Set current groupCode \(groupCode ?? "nil")")
-    }
-    
-    static func updateLocation(_ location: CLLocation) {
-        current.currentLocation = location
-        
-        guard let currentLocation = current.currentLocation,
-            let groupCode = current.groupCode else { return }
-        
-        //print("Updating location in firebase")
-        let ref = Database.database().reference().child(Constants.groups).child(groupCode).child(current.uid)
-        let locationDict = [Constants.Location.latitude : currentLocation.coordinate.latitude, Constants.Location.longitude : currentLocation.coordinate.longitude]
-        
-        ref.updateChildValues(locationDict) { (error, _) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-            }
-        }
     }
     
     init(uid: String, username: String) {
