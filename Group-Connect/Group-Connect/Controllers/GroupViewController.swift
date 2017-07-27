@@ -43,8 +43,19 @@ class GroupViewController: UIViewController {
         
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
-        GroupService.joinGroup(groupCode: groupCode) { () in
-            self.groupCode = groupCode
+        GroupService.joinGroup(groupCode: groupCode) { (groupExists) in
+            if groupExists {
+                self.groupCode = groupCode
+            } else {
+                let alertController = UIAlertController(title: "Group Code Invalid", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { action in
+                    //
+                }))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                return    //dispatchGroup does not leave and does not segue to Map
+            }
             dispatchGroup.leave()
         }
         dispatchGroup.notify(queue: .main) {

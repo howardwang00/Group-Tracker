@@ -66,7 +66,7 @@ struct GroupService {
         }
     }
     
-    static func joinGroup(groupCode: String, completion: @escaping (Void) -> Void) {
+    static func joinGroup(groupCode: String, completion: @escaping (Bool) -> Void) {
         let ref = Database.database().reference().child(Constants.groups)
         
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -75,7 +75,9 @@ struct GroupService {
             if groupDict[groupCode] != nil {
                 print("Group Currently Exists")
                 writeGroupInfoToFirebase(groupCode, ref)
-                completion()
+                completion(true)
+            } else {
+                completion(false)
             }
         })
     }
