@@ -25,7 +25,7 @@ struct LocationService {
         }
     }
     
-    static func retrieveGroupLocations(returnObserver: (UInt) -> Void, completion: @escaping ([String: [String: CLLocationDegrees]]) -> Void) {
+    static func startRetrieveGroupLocations(returnObserver: (UInt) -> Void, completion: @escaping ([String: [String: CLLocationDegrees]]) -> Void) {
         guard let groupCode = User.current.groupCode else { return }
         let ref = Database.database().reference().child(Constants.groups).child(groupCode)
         let observer = ref.observe(.value, with: { (snapshot) in

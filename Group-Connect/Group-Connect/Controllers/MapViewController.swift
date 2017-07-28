@@ -17,6 +17,8 @@ class MapViewController: UIViewController {
     var zoomLevel: Float = 15.0
     var groupObserver: UInt?
     
+    var groupMarkers = [String: GMSMarker]()
+    
     override func viewDidLoad() {
         self.title = "Group Code: \(groupCode)"
         
@@ -35,34 +37,13 @@ class MapViewController: UIViewController {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
         
-        LocationService.retrieveGroupLocations(returnObserver: { (observer) in
+        print("Retrieve Group Locations")
+        LocationService.startRetrieveGroupLocations(returnObserver: { (observer) in
             groupObserver = observer
         }) { (groupLocations) in
             print("Retrieved Group Locations")
             
-            self.mapView.clear()
-            
-            print(groupLocations.keys)
-            for userID in groupLocations.keys {
-                if userID == User.current.uid {
-                    return
-                }
-                
-                guard let location = groupLocations[userID],
-                    let latitude = location[Constants.Location.latitude],
-                    let longitude = location[Constants.Location.longitude]
-                    else { return }
-                
-                print("Showing member position")
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                
-                
-                marker.title = "Nachos"
-                marker.snippet = userID
-                
-                marker.map = self.mapView
-            }
+            self.updateGroupLocations(groupLocations)
         }
         
         view.addSubview(mapView)
@@ -85,6 +66,38 @@ class MapViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    private func updateGroupLocations(_ groupLocations: [String: [String: CLLocationDegrees]]) {
+        print(groupLocations)
+        mapView.clear()
+        for userID in groupMarkers.keys {
+            if groupLocations[userID] == nil {
+                groupMarkers[userID] = nil
+            }
+        }
+        
+        for userID in groupLocations.keys {
+            if userID == User.current.uid {
+                print("Found current user")
+                continue
+            }
+            
+            guard let latitude = groupLocations[userID]?[Constants.Location.latitude],
+                let longitude = groupLocations[userID]?[Constants.Location.longitude]
+                else { return }
+            
+            print("Updating a member position")
+            
+            if groupMarkers[userID] == nil {
+                groupMarkers[userID] = GMSMarker()
+                
+                groupMarkers[userID]!.title = "Nachos"
+                groupMarkers[userID]!.snippet = userID
+            }
+            groupMarkers[userID]!.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            groupMarkers[userID]!.map = self.mapView
+        }
+    }
+    
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -93,13 +106,9 @@ extension MapViewController: CLLocationManagerDelegate {
         
         LocationService.updateLocation(location)
         
-        //let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
-        
         if mapView.isHidden {
             mapView.isHidden = false
             mapView.camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
-        } else {
-            //mapView.animate(to: camera)
         }
         
     }

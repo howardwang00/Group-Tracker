@@ -57,11 +57,12 @@ struct GroupService {
         
         let groupData = ["\(groupCode)/\(User.current.uid)" : coordinateDict]
         
+        User.setGroup(groupCode)
+        
         ref.updateChildValues(groupData) { (error, _) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
             }
-            User.setGroup(groupCode)
         }
     }
     
