@@ -55,7 +55,7 @@ struct GroupService {
     private static func writeGroupInfoToFirebase(_ groupCode: String, _ ref: DatabaseReference) {
         let coordinateDict = [Constants.Location.latitude : User.defaultLocation.coordinate.latitude, Constants.Location.longitude : User.defaultLocation.coordinate.longitude]
         
-        let groupData = ["\(groupCode)/\(User.current.uid)" : coordinateDict]
+        let groupData = ["\(groupCode)/\(User.current.uid)": [Constants.User.username: User.current.username, Constants.Location.coordinate: coordinateDict]]
         
         User.setGroup(groupCode)
         

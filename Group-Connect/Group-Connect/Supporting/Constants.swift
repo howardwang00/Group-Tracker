@@ -29,6 +29,7 @@ struct Constants {
     }
     
     struct Location {
+        static let coordinate = "coordinate"
         static let latitude = "latitude"
         static let longitude = "longitude"
     }
