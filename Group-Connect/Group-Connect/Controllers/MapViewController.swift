@@ -40,10 +40,11 @@ class MapViewController: UIViewController {
         print("Retrieve Group Locations")
         LocationService.startRetrieveGroupLocations(returnObserver: { (observer) in
             groupObserver = observer
-        }) { (groupLocations) in
+        }) { (groupLocations, groupUsernames) in
             print("Retrieved Group Locations")
             
             self.updateGroupLocations(groupLocations)
+            self.setMarkerInformation(groupUsernames)
         }
         
         view.addSubview(mapView)
@@ -68,10 +69,12 @@ class MapViewController: UIViewController {
     
     private func updateGroupLocations(_ groupLocations: [String: [String: CLLocationDegrees]]) {
         print(groupLocations)
-        mapView.clear()
         for userID in groupMarkers.keys {
             if groupLocations[userID] == nil {
-                groupMarkers[userID] = nil
+                if groupMarkers[userID] != nil {
+                    groupMarkers[userID]!.map = nil
+                    groupMarkers[userID] = nil
+                }
             }
         }
         
@@ -90,11 +93,17 @@ class MapViewController: UIViewController {
             if groupMarkers[userID] == nil {
                 groupMarkers[userID] = GMSMarker()
                 
-                groupMarkers[userID]!.title = "Nachos"
-                groupMarkers[userID]!.snippet = userID
+                //groupMarkers[userID]!.snippet = userID
             }
             groupMarkers[userID]!.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             groupMarkers[userID]!.map = self.mapView
+        }
+    }
+    
+    private func setMarkerInformation(_ groupUsernames: [String: String]) {
+        for userID in groupUsernames.keys {
+            guard let marker = groupMarkers[userID] else { continue }
+            marker.title = groupUsernames[userID]
         }
     }
     
