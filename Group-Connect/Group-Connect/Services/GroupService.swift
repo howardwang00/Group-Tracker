@@ -69,6 +69,11 @@ struct GroupService {
     static func joinGroup(groupCode: String, completion: @escaping (Bool) -> Void) {
         let ref = Database.database().reference().child(Constants.groups)
         
+        if groupCode.characters.count != 4 {
+            completion(false)
+            return
+        }
+        
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let groupDict = snapshot.value as? [String: Any?] else { return }
             
