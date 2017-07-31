@@ -92,11 +92,10 @@ class MapViewController: UIViewController {
             
             if groupMarkers[userID] == nil {
                 groupMarkers[userID] = GMSMarker()
-                
-                //groupMarkers[userID]!.snippet = userID
+                //groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
+                groupMarkers[userID]!.map = self.mapView
             }
             groupMarkers[userID]!.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            groupMarkers[userID]!.map = self.mapView
         }
     }
     
@@ -104,6 +103,7 @@ class MapViewController: UIViewController {
         for userID in groupUsernames.keys {
             guard let marker = groupMarkers[userID] else { continue }
             marker.title = groupUsernames[userID]
+            //groupMarkers[userID]!.snippet = userID
         }
     }
     

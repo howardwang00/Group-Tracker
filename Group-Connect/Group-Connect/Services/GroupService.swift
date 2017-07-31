@@ -70,11 +70,16 @@ struct GroupService {
         let ref = Database.database().reference().child(Constants.groups)
         
         if groupCode.characters.count != 4 {
+            print("INVALID NUMBER OF LETTERS")
             completion(false)
             return
         }
         
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if !snapshot.exists() {
+                completion(false)
+            }
+            
             guard let groupDict = snapshot.value as? [String: Any?] else { return }
             
             if groupDict[groupCode] != nil {
