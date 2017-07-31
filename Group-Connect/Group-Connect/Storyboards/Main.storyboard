@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAT-KR-7mr">
-                                <rect key="frame" x="166.5" y="344" width="41" height="36"/>
+                                <rect key="frame" x="166.5" y="314" width="41" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSF-mz-BD6">
-                                <rect key="frame" x="50" y="430" width="274" height="100"/>
+                                <rect key="frame" x="50" y="400" width="274" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.32204861109999999" blue="0.88897026909999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Rxl-Sa-3Mg"/>
@@ -41,18 +41,8 @@
                                     <action selector="createButtonTapped:" destination="2wV-JL-qMC" eventType="touchUpInside" id="puL-qg-MUe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a33-cR-P29">
-                                <rect key="frame" x="112" y="114" width="150.5" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="YkZ-bd-Q7T"/>
-                                    <constraint firstAttribute="height" constant="50" id="kuC-tJ-EJZ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-Gs-vF1">
-                                <rect key="frame" x="50" y="194" width="275" height="100"/>
+                                <rect key="frame" x="50" y="164" width="275" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.3220486111111111" blue="0.88897026909722221" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="anR-MT-iOv"/>
@@ -73,10 +63,8 @@
                             <constraint firstItem="fSF-mz-BD6" firstAttribute="top" secondItem="nAT-KR-7mr" secondAttribute="bottom" constant="50" id="AwM-1m-WCQ"/>
                             <constraint firstItem="AY3-Gs-vF1" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="50" id="SV7-fy-WdF"/>
                             <constraint firstItem="fSF-mz-BD6" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="50" id="cfB-uA-QQw"/>
-                            <constraint firstItem="a33-cR-P29" firstAttribute="top" secondItem="eYh-aP-p2S" secondAttribute="bottom" constant="50" id="dbW-Mz-kSg"/>
-                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="top" secondItem="a33-cR-P29" secondAttribute="bottom" constant="30" id="gQ1-sI-SXe"/>
                             <constraint firstItem="nAT-KR-7mr" firstAttribute="top" secondItem="AY3-Gs-vF1" secondAttribute="bottom" constant="50" id="lK3-0U-22q"/>
-                            <constraint firstItem="a33-cR-P29" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="rcN-Ig-ddR"/>
+                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="top" secondItem="eYh-aP-p2S" secondAttribute="bottom" constant="100" id="n8T-sM-1ha"/>
                             <constraint firstItem="AY3-Gs-vF1" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="sTf-Lw-ZMi"/>
                         </constraints>
                     </view>
@@ -84,7 +72,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="createButton" destination="fSF-mz-BD6" id="FH2-RF-z2n"/>
-                        <outlet property="groupCodeTextField" destination="a33-cR-P29" id="UdP-qS-e6p"/>
                         <outlet property="joinButton" destination="AY3-Gs-vF1" id="MN3-RE-m3h"/>
                         <segue destination="KUe-BB-pOm" kind="show" identifier="toMap" id="Lwo-xi-RFw"/>
                     </connections>

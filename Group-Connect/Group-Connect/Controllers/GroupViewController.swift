@@ -9,9 +9,7 @@
 import UIKit
 
 class GroupViewController: UIViewController {
-    @IBOutlet weak var hiUsernameLabel: UILabel!
     @IBOutlet weak var joinButton: UIButton!
-    @IBOutlet weak var groupCodeTextField: UITextField!
     @IBOutlet weak var createButton: UIButton!
     
     var groupCode = ""
@@ -22,7 +20,8 @@ class GroupViewController: UIViewController {
         
         if let groupCode = User.current.groupCode {
             print("User already in group")
-            reenterGroup(groupCode: groupCode)
+            self.groupCode = groupCode
+            self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
         }
         
         self.title = "Hi \(User.current.username)!"
@@ -39,28 +38,7 @@ class GroupViewController: UIViewController {
     }
 
     @IBAction func joinButtonTapped(_ sender: Any) {
-        guard let groupCode = groupCodeTextField.text else { return }
-        
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        GroupService.joinGroup(groupCode: groupCode) { (groupExists) in
-            if groupExists {
-                self.groupCode = groupCode
-            } else {
-                let alertController = UIAlertController(title: "Group Code Invalid", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { action in
-                    //
-                }))
-                
-                self.present(alertController, animated: true, completion: nil)
-                
-                return    //dispatchGroup does not leave and does not segue to Map
-            }
-            dispatchGroup.leave()
-        }
-        dispatchGroup.notify(queue: .main) {
-            self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
-        }
+        presentGroupCodeAlert()
     }
 
     @IBAction func createButtonTapped(_ sender: Any) {
@@ -84,20 +62,65 @@ class GroupViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToGroupViewController(_ segue: UIStoryboardSegue) {
+    @IBAction func unwindToGroupViewController(_ segue: UIStoryboardSegue) { }
+    
+    private func presentGroupCodeAlert() {
+        let groupCodeAlertController = UIAlertController(title: "Group Code", message: "Enter a Group Code to Join an Existing Group!", preferredStyle: .alert)
         
+        let joinAction = UIAlertAction(title: "Join", style: .default, handler: { (action) in
+            guard let groupCodeTextField = groupCodeAlertController.textFields?[0],
+                let groupCode = groupCodeTextField.text else { return }
+            self.checkGroupCode(groupCode: groupCode)
+        })
+        joinAction.isEnabled = false
+        
+        groupCodeAlertController.addTextField { (groupCodeTextField) in
+            groupCodeTextField.placeholder = "Group Code"
+            groupCodeTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+            //joinAction.isEnabled = groupCodeTextField.text != ""
+            NotificationCenter.default.addObserver(forName: nil, object: groupCodeTextField, queue: nil, using: { notification in
+                joinAction.isEnabled = groupCodeTextField.text != ""
+            })
+            
+        }
+        groupCodeAlertController.addAction(joinAction)
+        groupCodeAlertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(groupCodeAlertController, animated: true, completion: nil)
     }
     
-    private func reenterGroup(groupCode: String) {
-        self.groupCode = groupCode
-        self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
+    private func checkGroupCode(groupCode: String?) {
+        guard let groupCode = groupCode else {
+            return
+        }
+        
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        GroupService.joinGroup(groupCode: groupCode) { (groupExists) in
+            if groupExists {
+                self.groupCode = groupCode
+            } else {
+                let alertController = UIAlertController(title: "Group Code Invalid", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (action) in
+                    self.presentGroupCodeAlert()
+                }))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                return    //dispatchGroup does not leave and does not segue to Map
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: .main) {
+            self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
+        }
     }
     
 }
 
 extension GroupViewController: UITextFieldDelegate {
     func dismissKeyboard() {
-        groupCodeTextField.resignFirstResponder()
+        //groupCodeTextField.resignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

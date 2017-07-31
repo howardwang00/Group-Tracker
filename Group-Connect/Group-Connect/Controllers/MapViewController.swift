@@ -10,7 +10,6 @@ import UIKit
 import GoogleMaps
 
 class MapViewController: UIViewController {
-    
     var locationManager = CLLocationManager()
     var groupCode = ""
     var mapView: GMSMapView!
