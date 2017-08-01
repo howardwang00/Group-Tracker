@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     var groupObserver: UInt?
     
     var groupMarkers = [String: GMSMarker]()
+    let markerIcon = UIImage(named: Constants.markerIcon)!.withRenderingMode(.alwaysTemplate)
     
     override func viewDidLoad() {
         self.title = "Group Code: \(groupCode)"
@@ -92,6 +93,12 @@ class MapViewController: UIViewController {
             if groupMarkers[userID] == nil {
                 groupMarkers[userID] = GMSMarker()
                 //groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
+                
+                let markerView = UIImageView(image: markerIcon)
+                //markerView.tintColor
+                groupMarkers[userID]!.iconView = markerView
+                groupMarkers[userID]!.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+                
                 groupMarkers[userID]!.map = self.mapView
             }
             groupMarkers[userID]!.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)

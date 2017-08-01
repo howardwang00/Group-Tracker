@@ -14,6 +14,7 @@ struct Constants {
     static let createUsername = "CreateUsername"
     static let users = "users"
     static let groups = "groups"
+    static let markerIcon = "markerIcon"
     
     struct User {
         static let username = "username"
