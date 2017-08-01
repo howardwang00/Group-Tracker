@@ -40,11 +40,11 @@ class MapViewController: UIViewController {
         print("Retrieve Group Locations")
         LocationService.startRetrieveGroupLocations(returnObserver: { (observer) in
             groupObserver = observer
-        }) { (groupLocations, groupUsernames) in
+        }) { (groupLocations, groupUsernames, groupTimestamps) in
             print("Retrieved Group Locations")
             
             self.updateGroupLocations(groupLocations)
-            self.setMarkerInformation(groupUsernames)
+            self.setMarkerInformation(groupUsernames, groupTimestamps)
         }
         
         view.addSubview(mapView)
@@ -95,7 +95,7 @@ class MapViewController: UIViewController {
                 //groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
                 
                 let markerView = UIImageView(image: markerIcon)
-                markerView.tintColor = UIColor.blue
+                //markerView.tintColor = UIColor.default
                 groupMarkers[userID]!.iconView = markerView
                 groupMarkers[userID]!.groundAnchor = CGPoint(x: 0.5, y: 0.5)
                 
@@ -105,11 +105,15 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func setMarkerInformation(_ groupUsernames: [String: String]) {
+    private func setMarkerInformation(_ groupUsernames: [String: String], _ groupTimestamps: [String: Date]) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
         for userID in groupUsernames.keys {
-            guard let marker = groupMarkers[userID] else { continue }
+            guard let marker = groupMarkers[userID],
+            let timestamp = groupTimestamps[userID]
+                else { continue }
             marker.title = groupUsernames[userID]
-            //groupMarkers[userID]!.snippet = userID
+            marker.snippet = "Updated \(timestamp.timeAgo())"
         }
     }
     

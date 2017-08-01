@@ -33,6 +33,7 @@ struct Constants {
         static let coordinate = "coordinate"
         static let latitude = "latitude"
         static let longitude = "longitude"
+        static let timestamp = "timestamp"
     }
     
     struct Storyboard {
