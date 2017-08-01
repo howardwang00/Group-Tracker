@@ -18,6 +18,9 @@ class MapViewController: UIViewController {
     
     var groupMarkers = [String: GMSMarker]()
     let markerIcon = UIImage(named: Constants.markerIcon)!.withRenderingMode(.alwaysTemplate)
+    var groupTimestamps = [String: Date]()
+    
+    var timer: Timer?
     
     override func viewDidLoad() {
         self.title = "Group Code: \(groupCode)"
@@ -44,13 +47,21 @@ class MapViewController: UIViewController {
             print("Retrieved Group Locations")
             
             self.updateGroupLocations(groupLocations)
-            self.setMarkerInformation(groupUsernames, groupTimestamps)
+            self.groupTimestamps = groupTimestamps
+            self.setMarkerUsernames(groupUsernames)
         }
         
         view.addSubview(mapView)
         mapView.isHidden = true //hides until location is updated
         
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateGroupTimestamps), userInfo: nil, repeats: true)
+        
         super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,14 +116,18 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func setMarkerInformation(_ groupUsernames: [String: String], _ groupTimestamps: [String: Date]) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
+    private func setMarkerUsernames(_ groupUsernames: [String: String]) {
         for userID in groupUsernames.keys {
-            guard let marker = groupMarkers[userID],
-            let timestamp = groupTimestamps[userID]
-                else { continue }
+            guard let marker = groupMarkers[userID] else { continue }
             marker.title = groupUsernames[userID]
+        }
+    }
+    
+    func updateGroupTimestamps() {
+        for userID in groupTimestamps.keys {
+            guard let marker = groupMarkers[userID],
+                let timestamp = groupTimestamps[userID]
+                else { continue }
             marker.snippet = "Updated \(timestamp.timeAgo())"
         }
     }
@@ -152,5 +167,7 @@ extension MapViewController: CLLocationManagerDelegate {
         print("Error: \(error)")
     }
 }
+
+
 
 

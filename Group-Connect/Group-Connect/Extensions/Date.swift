@@ -36,11 +36,11 @@ extension Date {
             } else {
                 return "\(hoursAgo) hours ago"
             }
-        } else if let minutesAgo = interval.minute, minutesAgo - 1 > 0 {
-            if minutesAgo - 1 == 1 {
+        } else if let minutesAgo = interval.minute, minutesAgo > 0 {
+            if minutesAgo == 1 {
                 return "1 minute ago"
             } else {
-                return "\(minutesAgo - 1) minutes ago"
+                return "\(minutesAgo) minutes ago"
             }
         } else {
             return "just now"
