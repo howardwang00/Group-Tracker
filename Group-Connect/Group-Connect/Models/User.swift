@@ -12,7 +12,7 @@ import GoogleMaps
 
 class User: NSObject {
     let uid: String
-    let username: String
+    var username: String
     var groupCode: String?
     
     // A default location to use when location permission is not granted.
@@ -42,6 +42,14 @@ class User: NSObject {
         let data = NSKeyedArchiver.archivedData(withRootObject: User.current)
         UserDefaults.standard.set(data, forKey: Constants.User.current)
         print("Set current groupCode to \(groupCode ?? "nil")")
+    }
+    
+    static func setUsername(_ username: String) {
+        current.username = username
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: User.current)
+        UserDefaults.standard.set(data, forKey: Constants.User.current)
+        print("Set current username to \(username)")
     }
     
     init(uid: String, username: String) {

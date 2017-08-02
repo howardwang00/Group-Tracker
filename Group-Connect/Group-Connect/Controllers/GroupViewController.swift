@@ -11,6 +11,7 @@ import UIKit
 class GroupViewController: UIViewController {
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var editUsername: UIBarButtonItem!
     
     var groupCode = ""
 
@@ -27,9 +28,6 @@ class GroupViewController: UIViewController {
         self.title = "Hi \(User.current.username)!"
         self.joinButton.layer.cornerRadius = 5
         self.createButton.layer.cornerRadius = 5
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        self.view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +37,28 @@ class GroupViewController: UIViewController {
 
     @IBAction func joinButtonTapped(_ sender: Any) {
         presentGroupCodeAlert()
+    }
+    @IBAction func editUsernameTapped(_ sender: Any) {
+        let editUsernameAlertController = UIAlertController(title: "Change Name", message: "", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            guard let changeNameTextField = editUsernameAlertController.textFields?[0],
+                let username = changeNameTextField.text else { return }
+            User.setUsername(username) //Later need to set usernames in Firebase for multiple groups
+            self.title = "Hi \(User.current.username)!"
+        }
+        confirmAction.isEnabled = false
+        
+        editUsernameAlertController.addTextField { (changeNameTextField) in
+            changeNameTextField.placeholder = "New Name"
+            NotificationCenter.default.addObserver(forName: nil, object: changeNameTextField, queue: nil, using: { (notification) in
+                confirmAction.isEnabled = changeNameTextField.text != ""
+            })
+        }
+        
+        editUsernameAlertController.addAction(confirmAction)
+        editUsernameAlertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(editUsernameAlertController, animated: true, completion: nil)
     }
 
     @IBAction func createButtonTapped(_ sender: Any) {
@@ -77,7 +97,6 @@ class GroupViewController: UIViewController {
         groupCodeAlertController.addTextField { (groupCodeTextField) in
             groupCodeTextField.placeholder = "Group Code"
             groupCodeTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
-            //joinAction.isEnabled = groupCodeTextField.text != ""
             NotificationCenter.default.addObserver(forName: nil, object: groupCodeTextField, queue: nil, using: { notification in
                 joinAction.isEnabled = groupCodeTextField.text != ""
             })
@@ -116,16 +135,5 @@ class GroupViewController: UIViewController {
         }
     }
     
-}
-
-extension GroupViewController: UITextFieldDelegate {
-    func dismissKeyboard() {
-        //groupCodeTextField.resignFirstResponder()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        dismissKeyboard()
-        return true
-    }
 }
 

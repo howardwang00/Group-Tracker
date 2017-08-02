@@ -68,10 +68,17 @@
                             <constraint firstItem="AY3-Gs-vF1" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="sTf-Lw-ZMi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fPg-w5-ONX"/>
+                    <navigationItem key="navigationItem" id="fPg-w5-ONX">
+                        <barButtonItem key="rightBarButtonItem" title="Edit Name" id="m3X-Mu-AMA">
+                            <connections>
+                                <action selector="editUsernameTapped:" destination="2wV-JL-qMC" id="6m9-P7-zJ3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="createButton" destination="fSF-mz-BD6" id="FH2-RF-z2n"/>
+                        <outlet property="editUsername" destination="m3X-Mu-AMA" id="MgH-ge-L6g"/>
                         <outlet property="joinButton" destination="AY3-Gs-vF1" id="MN3-RE-m3h"/>
                         <segue destination="KUe-BB-pOm" kind="show" identifier="toMap" id="Lwo-xi-RFw"/>
                     </connections>
