@@ -106,7 +106,7 @@ class MapViewController: UIViewController {
                 //groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
                 
                 let markerView = UIImageView(image: markerIcon)
-                //markerView.tintColor = UIColor.default
+                markerView.tintColor = UIColor(tint: .medDark)
                 groupMarkers[userID]!.iconView = markerView
                 groupMarkers[userID]!.groundAnchor = CGPoint(x: 0.5, y: 0.5)
                 

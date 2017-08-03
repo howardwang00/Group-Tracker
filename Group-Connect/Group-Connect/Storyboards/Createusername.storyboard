@@ -22,41 +22,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Y-4p-4m6">
-                                <rect key="frame" x="15" y="40" width="345" height="113.5"/>
+                                <rect key="frame" x="15" y="145" width="345" height="113.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
-                                <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.15294117647058825" green="1" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZq-US-ZMH">
-                                <rect key="frame" x="87.5" y="233.5" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.68235294120000001" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="87.5" y="469" width="200" height="75"/>
+                                <color key="backgroundColor" red="0.15294117647058825" green="1" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="mep-pV-SmY"/>
+                                    <constraint firstAttribute="height" constant="75" id="mep-pV-SmY"/>
                                     <constraint firstAttribute="width" constant="200" id="mmh-Pr-hZn"/>
                                 </constraints>
                                 <state key="normal" title="Next!">
-                                    <color key="titleColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.039215686274509803" green="0.25098039215686274" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="Mzs-CQ-Fzl" eventType="touchUpInside" id="hpd-mL-yrx"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-dy-vPQ">
-                                <rect key="frame" x="30" y="173.5" width="315" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.68235294120000001" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="30" y="308.5" width="315" height="50"/>
+                                <color key="backgroundColor" red="0.15294117647058825" green="1" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2es-oI-7xv"/>
+                                </constraints>
+                                <color key="textColor" red="0.039215686274509803" green="0.25098039215686274" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: Others will see your username." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgz-3o-ODE">
+                                <rect key="frame" x="46.5" y="373" width="281.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.1529411765" green="1" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.039215686274509803" green="0.25098039215686274" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Z2Y-4p-4m6" firstAttribute="leading" secondItem="Bax-gZ-3V2" secondAttribute="leading" constant="15" id="8Z5-ki-Bp3"/>
-                            <constraint firstItem="iZq-US-ZMH" firstAttribute="top" secondItem="OSL-dy-vPQ" secondAttribute="bottom" constant="30" id="RnW-Pl-g4x"/>
+                            <constraint firstItem="iZq-US-ZMH" firstAttribute="top" secondItem="tgz-3o-ODE" secondAttribute="bottom" constant="75" id="G6N-CT-NMF"/>
+                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="centerY" secondItem="Bax-gZ-3V2" secondAttribute="centerY" id="Klu-hC-dba"/>
+                            <constraint firstItem="tgz-3o-ODE" firstAttribute="top" secondItem="OSL-dy-vPQ" secondAttribute="bottom" constant="15" id="NPv-g1-7DY"/>
                             <constraint firstItem="iZq-US-ZMH" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="fxG-to-xre"/>
                             <constraint firstAttribute="trailing" secondItem="Z2Y-4p-4m6" secondAttribute="trailing" constant="15" id="iu8-sH-Yh5"/>
-                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="top" secondItem="Z2Y-4p-4m6" secondAttribute="bottom" constant="20" id="krd-KT-ksJ"/>
-                            <constraint firstItem="Z2Y-4p-4m6" firstAttribute="top" secondItem="6Hd-aj-MZ4" secondAttribute="bottom" constant="20" id="r0F-ZA-Rao"/>
+                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="top" secondItem="Z2Y-4p-4m6" secondAttribute="bottom" constant="50" id="krd-KT-ksJ"/>
+                            <constraint firstItem="tgz-3o-ODE" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="uD5-h4-TTD"/>
                             <constraint firstAttribute="trailing" secondItem="OSL-dy-vPQ" secondAttribute="trailing" constant="30" id="w4s-MP-QI1"/>
                             <constraint firstItem="OSL-dy-vPQ" firstAttribute="leading" secondItem="Bax-gZ-3V2" secondAttribute="leading" constant="30" id="yVR-mZ-jCa"/>
                         </constraints>
