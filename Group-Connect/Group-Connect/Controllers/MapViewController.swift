@@ -22,6 +22,9 @@ class MapViewController: UIViewController {
     
     var timer: Timer?
     
+    var groupMeetups = [Meetup]()
+    var newMeetup: GMSMarker?
+    
     override func viewDidLoad() {
         self.title = "Group Code: \(groupCode)"
         
@@ -37,6 +40,7 @@ class MapViewController: UIViewController {
         let camera = GMSCameraPosition.camera(withLatitude: User.defaultLocation.coordinate.latitude, longitude: User.defaultLocation.coordinate.longitude, zoom: zoomLevel)
         mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
         mapView.settings.myLocationButton = true
+        mapView.settings.compassButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
         
@@ -51,6 +55,7 @@ class MapViewController: UIViewController {
             self.setMarkerUsernames(groupUsernames)
         }
         
+        mapView.delegate = self
         view.addSubview(mapView)
         mapView.isHidden = true //hides until location is updated
         
@@ -103,12 +108,13 @@ class MapViewController: UIViewController {
             
             if groupMarkers[userID] == nil {
                 groupMarkers[userID] = GMSMarker()
-                //groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
+                groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
                 
                 let markerView = UIImageView(image: markerIcon)
                 markerView.tintColor = UIColor(tint: .medDark)
                 groupMarkers[userID]!.iconView = markerView
                 groupMarkers[userID]!.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+                groupMarkers[userID]!.tracksInfoWindowChanges = true
                 
                 groupMarkers[userID]!.map = self.mapView
             }
@@ -166,6 +172,35 @@ extension MapViewController: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
     }
+}
+
+extension MapViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        if let newMeetup = newMeetup,
+            newMeetup.isDraggable == true {
+            return
+        }
+        newMeetup = GMSMarker(position: coordinate)
+        newMeetup!.isDraggable = true
+        newMeetup!.map = mapView
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        guard marker == newMeetup else { return }
+        marker.isDraggable = false
+        //create meetup
+    }
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        guard marker == newMeetup else { return nil }
+        
+        let infoWindow = Bundle.main.loadNibNamed(Constants.customInfoWindow, owner: self, options: nil)?.first as! CustomInfoWindow
+        
+        infoWindow.confirmGroup.image = UIImage(named: Constants.confirmMeetup)
+        infoWindow.confirmGroup.backgroundColor = UIColor(red: 234, green: 0, blue: 0, alpha: 0)
+        return infoWindow
+    }
+    
 }
 
 

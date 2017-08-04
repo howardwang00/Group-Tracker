@@ -10,10 +10,13 @@
 		892607001F1D70C1001EDE35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892606FF1F1D70C1001EDE35 /* Main.storyboard */; };
 		892698C31F1979F100A52AA5 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892698C21F1979F100A52AA5 /* Storyboard.swift */; };
 		8926E6B31F32429C0088BF2C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926E6B21F32429C0088BF2C /* UIColor.swift */; };
+		89279A301F3391AC00260094 /* Meetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279A2F1F3391AC00260094 /* Meetup.swift */; };
 		8928C2FA1F312586001C91D8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8928C2F91F312586001C91D8 /* Date.swift */; };
 		89290A961F2A6BBD00C6ED26 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89290A951F2A6BBD00C6ED26 /* LocationService.swift */; };
 		892A07A51F17D8B100B3D8EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A07A41F17D8B100B3D8EF /* User.swift */; };
 		8945DDF41F215ECD009A63DD /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945DDF31F215ECD009A63DD /* GroupService.swift */; };
+		8991230B1F34E52000BE517C /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8991230A1F34E52000BE517C /* CustomInfoWindow.xib */; };
+		8991230D1F34E53700BE517C /* CustomInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991230C1F34E53700BE517C /* CustomInfoWindow.swift */; };
 		89913D921F16987E009AA08C /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D901F16987E009AA08C /* CreateUsernameViewController.swift */; };
 		89913D931F16987E009AA08C /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D911F16987E009AA08C /* GroupViewController.swift */; };
 		89913D991F169893009AA08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89913D961F169893009AA08C /* LaunchScreen.storyboard */; };
@@ -32,10 +35,13 @@
 		892606FF1F1D70C1001EDE35 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		892698C21F1979F100A52AA5 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboard.swift; path = Extensions/Storyboard.swift; sourceTree = "<group>"; };
 		8926E6B21F32429C0088BF2C /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extensions/UIColor.swift; sourceTree = "<group>"; };
+		89279A2F1F3391AC00260094 /* Meetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meetup.swift; path = Models/Meetup.swift; sourceTree = "<group>"; };
 		8928C2F91F312586001C91D8 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Extensions/Date.swift; sourceTree = "<group>"; };
 		89290A951F2A6BBD00C6ED26 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Services/LocationService.swift; sourceTree = "<group>"; };
 		892A07A41F17D8B100B3D8EF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		8945DDF31F215ECD009A63DD /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupService.swift; path = Services/GroupService.swift; sourceTree = "<group>"; };
+		8991230A1F34E52000BE517C /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomInfoWindow.xib; path = Supporting/CustomInfoWindow.xib; sourceTree = "<group>"; };
+		8991230C1F34E53700BE517C /* CustomInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomInfoWindow.swift; path = Supporting/CustomInfoWindow.swift; sourceTree = "<group>"; };
 		89913D901F16987E009AA08C /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		89913D911F16987E009AA08C /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = Controllers/GroupViewController.swift; sourceTree = "<group>"; };
 		89913D961F169893009AA08C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				892A07A41F17D8B100B3D8EF /* User.swift */,
+				89279A2F1F3391AC00260094 /* Meetup.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -106,6 +113,8 @@
 				89913D9C1F1698A5009AA08C /* GoogleService-Info.plist */,
 				89913D9D1F1698A5009AA08C /* Info.plist */,
 				89913DA41F16CB2F009AA08C /* Constants.swift */,
+				8991230A1F34E52000BE517C /* CustomInfoWindow.xib */,
+				8991230C1F34E53700BE517C /* CustomInfoWindow.swift */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -234,6 +243,7 @@
 			files = (
 				89913D991F169893009AA08C /* LaunchScreen.storyboard in Resources */,
 				89913D9E1F1698A5009AA08C /* GoogleService-Info.plist in Resources */,
+				8991230B1F34E52000BE517C /* CustomInfoWindow.xib in Resources */,
 				892607001F1D70C1001EDE35 /* Main.storyboard in Resources */,
 				89CF45041F159C8B00C087D5 /* Assets.xcassets in Resources */,
 				89913D9A1F169893009AA08C /* Createusername.storyboard in Resources */,
@@ -306,6 +316,8 @@
 				89913D921F16987E009AA08C /* CreateUsernameViewController.swift in Sources */,
 				89CF44FD1F159C8B00C087D5 /* AppDelegate.swift in Sources */,
 				89D46CEB1F1FDB10007D3434 /* MapViewController.swift in Sources */,
+				89279A301F3391AC00260094 /* Meetup.swift in Sources */,
+				8991230D1F34E53700BE517C /* CustomInfoWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
