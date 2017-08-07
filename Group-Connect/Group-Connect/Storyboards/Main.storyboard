@@ -101,21 +101,104 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ayi-cZ-ckA">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Leave Group" id="i9n-lD-M5C">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="leaveGroupButtonTapped:" destination="KUe-BB-pOm" id="Cm0-WO-dHX"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title=":)" id="Jbm-6t-XRJ">
+                            <connections>
+                                <action selector="confirmMeetupButtonTapped:" destination="KUe-BB-pOm" id="bjV-HD-KE7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="f7g-Dl-tWf" kind="unwind" identifier="leaveGroup" unwindAction="unwindToGroupViewController:" id="aYZ-Mq-vgI"/>
+                        <segue destination="iNL-Ky-txs" kind="presentation" identifier="presentMeetupController" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Cr0-xJ-Y7E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9k-81-7pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="f7g-Dl-tWf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="9206" y="357"/>
+        </scene>
+        <!--Meetup View Controller-->
+        <scene sceneID="sWW-Ko-Y90">
+            <objects>
+                <viewController id="iNL-Ky-txs" customClass="MeetupViewController" customModule="Group_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yW8-gY-ruW"/>
+                        <viewControllerLayoutGuide type="bottom" id="FBn-mL-xqF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fyb-0a-3zq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvy-pM-4FW" userLabel="Display">
+                                <rect key="frame" x="20" y="103.5" width="335" height="460"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Ta-7F-ihv">
+                                        <rect key="frame" x="0.0" y="143" width="335" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="523575752.62058598">
+                                            <!--2017-08-04 21:42:32 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLa-8z-5LI">
+                                        <rect key="frame" x="50" y="409" width="235" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="dismissPressed:" destination="iNL-Ky-txs" eventType="touchUpInside" id="EwR-5w-Auy"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Meetup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7H-UX-0aW">
+                                        <rect key="frame" x="0.0" y="10" width="335" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Gg-5y-jFr">
+                                        <rect key="frame" x="30" y="83" width="275" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dLa-8z-5LI" firstAttribute="top" secondItem="6Ta-7F-ihv" secondAttribute="bottom" constant="50" id="05S-eT-aFz"/>
+                                    <constraint firstItem="z7H-UX-0aW" firstAttribute="centerX" secondItem="hvy-pM-4FW" secondAttribute="centerX" id="3VH-Hx-7on"/>
+                                    <constraint firstItem="6Ta-7F-ihv" firstAttribute="leading" secondItem="hvy-pM-4FW" secondAttribute="leading" id="EXF-ZI-QDJ"/>
+                                    <constraint firstItem="dLa-8z-5LI" firstAttribute="centerX" secondItem="hvy-pM-4FW" secondAttribute="centerX" id="Hcq-mO-dsZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Ta-7F-ihv" secondAttribute="trailing" id="I1K-Va-6Lb"/>
+                                    <constraint firstItem="z7H-UX-0aW" firstAttribute="width" secondItem="hvy-pM-4FW" secondAttribute="width" id="Pv4-gP-9km"/>
+                                    <constraint firstItem="6Gg-5y-jFr" firstAttribute="centerX" secondItem="hvy-pM-4FW" secondAttribute="centerX" id="WIb-mr-Taa"/>
+                                    <constraint firstItem="z7H-UX-0aW" firstAttribute="top" secondItem="hvy-pM-4FW" secondAttribute="top" constant="10" id="Zo1-gv-4ET"/>
+                                    <constraint firstItem="dLa-8z-5LI" firstAttribute="leading" secondItem="hvy-pM-4FW" secondAttribute="leading" constant="50" id="ZuI-KV-M7e"/>
+                                    <constraint firstItem="6Ta-7F-ihv" firstAttribute="top" secondItem="6Gg-5y-jFr" secondAttribute="bottom" constant="30" id="jNS-yL-VLH"/>
+                                    <constraint firstAttribute="bottom" secondItem="dLa-8z-5LI" secondAttribute="bottom" constant="10" id="qmJ-ee-o1f"/>
+                                    <constraint firstItem="6Gg-5y-jFr" firstAttribute="top" secondItem="z7H-UX-0aW" secondAttribute="bottom" constant="30" id="qrm-vK-zmr"/>
+                                    <constraint firstItem="6Gg-5y-jFr" firstAttribute="leading" secondItem="hvy-pM-4FW" secondAttribute="leading" constant="30" id="siU-ne-6pP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hvy-pM-4FW" firstAttribute="centerY" secondItem="Fyb-0a-3zq" secondAttribute="centerY" id="2ML-5a-Wzy"/>
+                            <constraint firstItem="hvy-pM-4FW" firstAttribute="centerX" secondItem="Fyb-0a-3zq" secondAttribute="centerX" id="PwL-D1-FX7"/>
+                            <constraint firstItem="hvy-pM-4FW" firstAttribute="leading" secondItem="Fyb-0a-3zq" secondAttribute="leading" constant="20" id="hUi-aw-Seb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="display" destination="hvy-pM-4FW" id="vdV-T1-lWK"/>
+                        <outlet property="titleTextField" destination="6Gg-5y-jFr" id="uNa-43-m3A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4v-zv-eQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10005.6" y="356.67166416791605"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SxC-CA-zQs">

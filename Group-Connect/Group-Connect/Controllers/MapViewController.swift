@@ -83,6 +83,10 @@ class MapViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func confirmMeetupButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: Constants.Segue.presentMeetupController, sender: nil)
+    }
+    
     private func updateGroupLocations(_ groupLocations: [String: [String: CLLocationDegrees]]) {
         print(groupLocations)
         for userID in groupMarkers.keys {
@@ -183,12 +187,15 @@ extension MapViewController: GMSMapViewDelegate {
         newMeetup = GMSMarker(position: coordinate)
         newMeetup!.isDraggable = true
         newMeetup!.map = mapView
+        
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        guard marker == newMeetup else { return }
-        marker.isDraggable = false
-        //create meetup
+        if marker == newMeetup {
+            newMeetup = nil
+            
+            presentMeetupAlertController()
+        }
     }
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
@@ -197,10 +204,33 @@ extension MapViewController: GMSMapViewDelegate {
         let infoWindow = Bundle.main.loadNibNamed(Constants.customInfoWindow, owner: self, options: nil)?.first as! CustomInfoWindow
         
         infoWindow.confirmGroup.image = UIImage(named: Constants.confirmMeetup)
-        infoWindow.confirmGroup.backgroundColor = UIColor(red: 234, green: 0, blue: 0, alpha: 0)
-        return infoWindow
+        
+        //return infoWindow
+        return nil
     }
     
+    
+    func presentMeetupAlertController() {
+        let alertController = UIAlertController(title: "New Meetup", message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
+            //write to firebase
+            
+        })
+        confirmAction.isEnabled = false
+        
+        alertController.addTextField { (titleTextField) in
+            titleTextField.placeholder = "Title"
+            NotificationCenter.default.addObserver(forName: nil, object: titleTextField, queue: nil, using: { (notification) in
+                confirmAction.isEnabled = titleTextField.text != ""
+            })
+        }
+        
+        alertController.addChildViewController(DatePickerViewController())
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 

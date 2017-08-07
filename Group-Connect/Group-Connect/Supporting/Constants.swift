@@ -28,6 +28,7 @@ struct Constants {
         static let toMain = "toMain"
         static let toMap = "toMap"
         static let leaveGroup = "leaveGroup"
+        static let presentMeetupController = "presentMeetupController"
     }
     
     struct User {

@@ -17,6 +17,9 @@
 		8945DDF41F215ECD009A63DD /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945DDF31F215ECD009A63DD /* GroupService.swift */; };
 		8991230B1F34E52000BE517C /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8991230A1F34E52000BE517C /* CustomInfoWindow.xib */; };
 		8991230D1F34E53700BE517C /* CustomInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991230C1F34E53700BE517C /* CustomInfoWindow.swift */; };
+		899123101F34FBAE00BE517C /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991230E1F34FBAE00BE517C /* DatePickerViewController.swift */; };
+		899123111F34FBAE00BE517C /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8991230F1F34FBAE00BE517C /* DatePickerViewController.xib */; };
+		899123131F35211D00BE517C /* MeetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899123121F35211D00BE517C /* MeetupViewController.swift */; };
 		89913D921F16987E009AA08C /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D901F16987E009AA08C /* CreateUsernameViewController.swift */; };
 		89913D931F16987E009AA08C /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913D911F16987E009AA08C /* GroupViewController.swift */; };
 		89913D991F169893009AA08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89913D961F169893009AA08C /* LaunchScreen.storyboard */; };
@@ -42,6 +45,9 @@
 		8945DDF31F215ECD009A63DD /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupService.swift; path = Services/GroupService.swift; sourceTree = "<group>"; };
 		8991230A1F34E52000BE517C /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomInfoWindow.xib; path = Supporting/CustomInfoWindow.xib; sourceTree = "<group>"; };
 		8991230C1F34E53700BE517C /* CustomInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomInfoWindow.swift; path = Supporting/CustomInfoWindow.swift; sourceTree = "<group>"; };
+		8991230E1F34FBAE00BE517C /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerViewController.swift; path = Supporting/DatePickerViewController.swift; sourceTree = "<group>"; };
+		8991230F1F34FBAE00BE517C /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DatePickerViewController.xib; path = Supporting/DatePickerViewController.xib; sourceTree = "<group>"; };
+		899123121F35211D00BE517C /* MeetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetupViewController.swift; path = Controllers/MeetupViewController.swift; sourceTree = "<group>"; };
 		89913D901F16987E009AA08C /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		89913D911F16987E009AA08C /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = Controllers/GroupViewController.swift; sourceTree = "<group>"; };
 		89913D961F169893009AA08C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +99,7 @@
 				89913D901F16987E009AA08C /* CreateUsernameViewController.swift */,
 				89913D911F16987E009AA08C /* GroupViewController.swift */,
 				89D46CEA1F1FDB10007D3434 /* MapViewController.swift */,
+				899123121F35211D00BE517C /* MeetupViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -115,6 +122,8 @@
 				89913DA41F16CB2F009AA08C /* Constants.swift */,
 				8991230A1F34E52000BE517C /* CustomInfoWindow.xib */,
 				8991230C1F34E53700BE517C /* CustomInfoWindow.swift */,
+				8991230E1F34FBAE00BE517C /* DatePickerViewController.swift */,
+				8991230F1F34FBAE00BE517C /* DatePickerViewController.xib */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 				8991230B1F34E52000BE517C /* CustomInfoWindow.xib in Resources */,
 				892607001F1D70C1001EDE35 /* Main.storyboard in Resources */,
 				89CF45041F159C8B00C087D5 /* Assets.xcassets in Resources */,
+				899123111F34FBAE00BE517C /* DatePickerViewController.xib in Resources */,
 				89913D9A1F169893009AA08C /* Createusername.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +317,8 @@
 			files = (
 				89913DA51F16CB2F009AA08C /* Constants.swift in Sources */,
 				8928C2FA1F312586001C91D8 /* Date.swift in Sources */,
+				899123101F34FBAE00BE517C /* DatePickerViewController.swift in Sources */,
+				899123131F35211D00BE517C /* MeetupViewController.swift in Sources */,
 				8945DDF41F215ECD009A63DD /* GroupService.swift in Sources */,
 				89290A961F2A6BBD00C6ED26 /* LocationService.swift in Sources */,
 				892A07A51F17D8B100B3D8EF /* User.swift in Sources */,
