@@ -22,9 +22,6 @@ class MapViewController: UIViewController {
     
     var timer: Timer?
     
-    var groupMeetups = [Meetup]()
-    var newMeetup: GMSMarker?
-    
     override func viewDidLoad() {
         self.title = "Group Code: \(groupCode)"
         
@@ -40,7 +37,6 @@ class MapViewController: UIViewController {
         let camera = GMSCameraPosition.camera(withLatitude: User.defaultLocation.coordinate.latitude, longitude: User.defaultLocation.coordinate.longitude, zoom: zoomLevel)
         mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
         mapView.settings.myLocationButton = true
-        mapView.settings.compassButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
         
@@ -55,7 +51,6 @@ class MapViewController: UIViewController {
             self.setMarkerUsernames(groupUsernames)
         }
         
-        mapView.delegate = self
         view.addSubview(mapView)
         mapView.isHidden = true //hides until location is updated
         
@@ -83,10 +78,6 @@ class MapViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func confirmMeetupButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: Constants.Segue.presentMeetupController, sender: nil)
-    }
-    
     private func updateGroupLocations(_ groupLocations: [String: [String: CLLocationDegrees]]) {
         print(groupLocations)
         for userID in groupMarkers.keys {
@@ -112,13 +103,12 @@ class MapViewController: UIViewController {
             
             if groupMarkers[userID] == nil {
                 groupMarkers[userID] = GMSMarker()
-                groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
+                //groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
                 
                 let markerView = UIImageView(image: markerIcon)
                 markerView.tintColor = UIColor(tint: .medDark)
                 groupMarkers[userID]!.iconView = markerView
                 groupMarkers[userID]!.groundAnchor = CGPoint(x: 0.5, y: 0.5)
-                groupMarkers[userID]!.tracksInfoWindowChanges = true
                 
                 groupMarkers[userID]!.map = self.mapView
             }
@@ -175,61 +165,6 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
-    }
-}
-
-extension MapViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-        if let newMeetup = newMeetup,
-            newMeetup.isDraggable == true {
-            return
-        }
-        newMeetup = GMSMarker(position: coordinate)
-        newMeetup!.isDraggable = true
-        newMeetup!.map = mapView
-        
-    }
-    
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        if marker == newMeetup {
-            newMeetup = nil
-            
-            presentMeetupAlertController()
-        }
-    }
-    
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        guard marker == newMeetup else { return nil }
-        
-        let infoWindow = Bundle.main.loadNibNamed(Constants.customInfoWindow, owner: self, options: nil)?.first as! CustomInfoWindow
-        
-        infoWindow.confirmGroup.image = UIImage(named: Constants.confirmMeetup)
-        
-        //return infoWindow
-        return nil
-    }
-    
-    
-    func presentMeetupAlertController() {
-        let alertController = UIAlertController(title: "New Meetup", message: nil, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
-            //write to firebase
-            
-        })
-        confirmAction.isEnabled = false
-        
-        alertController.addTextField { (titleTextField) in
-            titleTextField.placeholder = "Title"
-            NotificationCenter.default.addObserver(forName: nil, object: titleTextField, queue: nil, using: { (notification) in
-                confirmAction.isEnabled = titleTextField.text != ""
-            })
-        }
-        
-        alertController.addChildViewController(DatePickerViewController())
-        
-        alertController.addAction(confirmAction)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
     }
 }
 

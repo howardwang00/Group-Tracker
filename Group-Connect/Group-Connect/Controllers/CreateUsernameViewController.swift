@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class CreateUsernameViewController: UIViewController {
+class CreateUsernameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -48,9 +48,7 @@ class CreateUsernameViewController: UIViewController {
             self.performSegue(withIdentifier: Constants.Segue.toMain, sender: nil)
         }
     }
-}
-
-extension CreateUsernameViewController: UITextFieldDelegate {
+    
     func dismissKeyboard() {
         usernameTextField.resignFirstResponder()
     }
