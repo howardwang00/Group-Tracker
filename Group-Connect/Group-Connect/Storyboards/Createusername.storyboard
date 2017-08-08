@@ -21,55 +21,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Y-4p-4m6">
-                                <rect key="frame" x="15" y="145" width="345" height="113.5"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
-                                <color key="textColor" red="0.15294117647058825" green="1" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Y-4p-4m6">
+                                <rect key="frame" x="87.5" y="172.5" width="200" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="zGW-Qi-gdR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZq-US-ZMH">
                                 <rect key="frame" x="87.5" y="469" width="200" height="75"/>
-                                <color key="backgroundColor" red="0.15294117647058825" green="1" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.59607843137254901" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="mep-pV-SmY"/>
                                     <constraint firstAttribute="width" constant="200" id="mmh-Pr-hZn"/>
                                 </constraints>
                                 <state key="normal" title="Next!">
-                                    <color key="titleColor" red="0.039215686274509803" green="0.25098039215686274" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="Mzs-CQ-Fzl" eventType="touchUpInside" id="hpd-mL-yrx"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-dy-vPQ">
-                                <rect key="frame" x="30" y="308.5" width="315" height="50"/>
-                                <color key="backgroundColor" red="0.15294117647058825" green="1" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="62.5" y="308.5" width="250" height="50"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2es-oI-7xv"/>
+                                    <constraint firstAttribute="width" constant="250" id="Sro-LZ-UUC"/>
                                 </constraints>
-                                <color key="textColor" red="0.039215686274509803" green="0.25098039215686274" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.59607843137254901" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: Others will see your username." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgz-3o-ODE">
-                                <rect key="frame" x="46.5" y="373" width="281.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Others will see your username." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgz-3o-ODE">
+                                <rect key="frame" x="69.5" y="373" width="235.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.1529411765" green="1" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.039215686274509803" green="0.25098039215686274" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Z2Y-4p-4m6" firstAttribute="leading" secondItem="Bax-gZ-3V2" secondAttribute="leading" constant="15" id="8Z5-ki-Bp3"/>
                             <constraint firstItem="iZq-US-ZMH" firstAttribute="top" secondItem="tgz-3o-ODE" secondAttribute="bottom" constant="75" id="G6N-CT-NMF"/>
                             <constraint firstItem="OSL-dy-vPQ" firstAttribute="centerY" secondItem="Bax-gZ-3V2" secondAttribute="centerY" id="Klu-hC-dba"/>
                             <constraint firstItem="tgz-3o-ODE" firstAttribute="top" secondItem="OSL-dy-vPQ" secondAttribute="bottom" constant="15" id="NPv-g1-7DY"/>
+                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="P3A-US-jhq"/>
                             <constraint firstItem="iZq-US-ZMH" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="fxG-to-xre"/>
-                            <constraint firstAttribute="trailing" secondItem="Z2Y-4p-4m6" secondAttribute="trailing" constant="15" id="iu8-sH-Yh5"/>
                             <constraint firstItem="OSL-dy-vPQ" firstAttribute="top" secondItem="Z2Y-4p-4m6" secondAttribute="bottom" constant="50" id="krd-KT-ksJ"/>
                             <constraint firstItem="tgz-3o-ODE" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="uD5-h4-TTD"/>
-                            <constraint firstAttribute="trailing" secondItem="OSL-dy-vPQ" secondAttribute="trailing" constant="30" id="w4s-MP-QI1"/>
-                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="leading" secondItem="Bax-gZ-3V2" secondAttribute="leading" constant="30" id="yVR-mZ-jCa"/>
+                            <constraint firstItem="Z2Y-4p-4m6" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="z02-Sn-dyc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8M2-jT-8fd"/>

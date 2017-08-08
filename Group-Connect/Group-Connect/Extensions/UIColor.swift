@@ -9,16 +9,16 @@
 import UIKit
 
 extension UIColor {
-    enum Green: Int {
-        case bright = 0x27FF55,
-        medBright = 0x23E54C,
-        medium = 0x1DBF3F,
-        medDark = 0x137F2A,
-        dark = 0x0A4015
+    enum Blue: Int {
+        case bright = 0x00CAFF,
+        medBright = 0x00B6E5,
+        medium = 0x0098BF,
+        medDark = 0x00657F,
+        dark = 0x003340
     }
     
-    convenience init(tint: Green, opaque: CGFloat = 1.0) {
-        let color = tint.rawValue
+    convenience init(blueTint: Blue, opaque: CGFloat = 1.0) {
+        let color = blueTint.rawValue
         let red = (color & 0xFF0000) >> 16
         let green = (color & 0x00FF00) >> 8
         let blue = color & 0x0000FF

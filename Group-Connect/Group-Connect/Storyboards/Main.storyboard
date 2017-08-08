@@ -29,13 +29,13 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSF-mz-BD6">
                                 <rect key="frame" x="50" y="400" width="274" height="100"/>
-                                <color key="backgroundColor" red="0.0" green="0.32204861109999999" blue="0.88897026909999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.396078431372549" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Rxl-Sa-3Mg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="CREATE">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="createButtonTapped:" destination="2wV-JL-qMC" eventType="touchUpInside" id="puL-qg-MUe"/>
@@ -43,20 +43,20 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-Gs-vF1">
                                 <rect key="frame" x="50" y="164" width="275" height="100"/>
-                                <color key="backgroundColor" red="0.0" green="0.3220486111111111" blue="0.88897026909722221" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.396078431372549" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="anR-MT-iOv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="JOIN">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="joinButtonTapped:" destination="2wV-JL-qMC" eventType="touchUpInside" id="vFr-kk-Za9"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="fSF-mz-BD6" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="8rX-1v-237"/>
                             <constraint firstItem="nAT-KR-7mr" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="9A0-oj-pWa"/>
@@ -70,6 +70,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fPg-w5-ONX">
                         <barButtonItem key="rightBarButtonItem" title="Edit Name" id="m3X-Mu-AMA">
+                            <color key="tintColor" red="0.0" green="0.59607843140000005" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="editUsernameTapped:" destination="2wV-JL-qMC" id="6m9-P7-zJ3"/>
                             </connections>
@@ -80,6 +81,8 @@
                         <outlet property="createButton" destination="fSF-mz-BD6" id="FH2-RF-z2n"/>
                         <outlet property="editUsername" destination="m3X-Mu-AMA" id="MgH-ge-L6g"/>
                         <outlet property="joinButton" destination="AY3-Gs-vF1" id="MN3-RE-m3h"/>
+                        <outlet property="navigationBar" destination="fPg-w5-ONX" id="F86-oi-pbb"/>
+                        <outlet property="navigationItem" destination="fPg-w5-ONX" id="2c0-ZF-NQV"/>
                         <segue destination="KUe-BB-pOm" kind="show" identifier="toMap" id="Lwo-xi-RFw"/>
                     </connections>
                 </viewController>
