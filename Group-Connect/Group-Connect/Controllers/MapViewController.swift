@@ -23,6 +23,7 @@ class MapViewController: UIViewController {
     var timer: Timer?
     
     override func viewDidLoad() {
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(blueTint: .medium)]
         self.title = "Group Code: \(groupCode)"
         
         //initialize the location manager

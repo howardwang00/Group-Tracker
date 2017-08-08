@@ -69,8 +69,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fPg-w5-ONX">
-                        <barButtonItem key="rightBarButtonItem" title="Edit Name" id="m3X-Mu-AMA">
-                            <color key="tintColor" red="0.0" green="0.59607843140000005" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="m3X-Mu-AMA">
                             <connections>
                                 <action selector="editUsernameTapped:" destination="2wV-JL-qMC" id="6m9-P7-zJ3"/>
                             </connections>
@@ -81,8 +80,6 @@
                         <outlet property="createButton" destination="fSF-mz-BD6" id="FH2-RF-z2n"/>
                         <outlet property="editUsername" destination="m3X-Mu-AMA" id="MgH-ge-L6g"/>
                         <outlet property="joinButton" destination="AY3-Gs-vF1" id="MN3-RE-m3h"/>
-                        <outlet property="navigationBar" destination="fPg-w5-ONX" id="F86-oi-pbb"/>
-                        <outlet property="navigationItem" destination="fPg-w5-ONX" id="2c0-ZF-NQV"/>
                         <segue destination="KUe-BB-pOm" kind="show" identifier="toMap" id="Lwo-xi-RFw"/>
                     </connections>
                 </viewController>
