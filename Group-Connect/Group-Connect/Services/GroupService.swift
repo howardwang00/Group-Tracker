@@ -22,7 +22,7 @@ struct GroupService {
             }
             
             guard let groupDict = snapshot.value as? [String: Any?] else { return }
-            print(groupDict)
+            //print(groupDict)
             
             var groupCode: String?
             var valid = false

@@ -26,7 +26,7 @@ class GroupViewController: UIViewController {
             self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
         }
         
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(blueTint: .medium)]
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(color: .skyBlue)]
         self.title = "Hi \(User.current.username)!"
         self.joinButton.layer.cornerRadius = 5
         self.createButton.layer.cornerRadius = 5

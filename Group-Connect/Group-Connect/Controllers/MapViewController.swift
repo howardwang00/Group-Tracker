@@ -23,7 +23,7 @@ class MapViewController: UIViewController {
     var timer: Timer?
     
     override func viewDidLoad() {
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(blueTint: .medium)]
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(color: .skyBlue)]
         self.title = "Group Code: \(groupCode)"
         
         //initialize the location manager
@@ -45,7 +45,7 @@ class MapViewController: UIViewController {
         LocationService.startRetrieveGroupLocations(returnObserver: { (observer) in
             groupObserver = observer
         }) { (groupLocations, groupUsernames, groupTimestamps) in
-            print("Retrieved Group Locations")
+            //print("Retrieved Group Locations")
             
             self.updateGroupLocations(groupLocations)
             self.groupTimestamps = groupTimestamps
@@ -80,7 +80,7 @@ class MapViewController: UIViewController {
     }
     
     private func updateGroupLocations(_ groupLocations: [String: [String: CLLocationDegrees]]) {
-        print(groupLocations)
+        //print(groupLocations)
         for userID in groupMarkers.keys {
             if groupLocations[userID] == nil {
                 if groupMarkers[userID] != nil {
@@ -92,7 +92,7 @@ class MapViewController: UIViewController {
         
         for userID in groupLocations.keys {
             if userID == User.current.uid {
-                print("Found current user")
+                //print("Found current user")
                 continue
             }
             
@@ -100,14 +100,14 @@ class MapViewController: UIViewController {
                 let longitude = groupLocations[userID]?[Constants.Location.longitude]
                 else { return }
             
-            print("Updating a member position")
+            //print("Updating a member position")
             
             if groupMarkers[userID] == nil {
                 groupMarkers[userID] = GMSMarker()
                 groupMarkers[userID]!.appearAnimation = GMSMarkerAnimation.pop
                 
                 let markerView = UIImageView(image: markerIcon)
-                markerView.tintColor = UIColor(blueTint: .medDark)
+                markerView.tintColor = UIColor(color: .blue)
                 groupMarkers[userID]!.iconView = markerView
                 groupMarkers[userID]!.groundAnchor = CGPoint(x: 0.5, y: 0.5)
                 
@@ -154,7 +154,13 @@ extension MapViewController: CLLocationManagerDelegate {
             print("Location access was restricted.")
         case .denied:
             print("User denied access to location")
-            mapView.isHidden = false    //display the map with the default location
+            
+            let alertController = UIAlertController(title: "Warning", message: "Location Access is Required in Order to Use This App", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            present(alertController, animated: true, completion: nil)
+            
+            //mapView.isHidden = false    //display the map with the default location
         case .notDetermined:
             print("Location status not determined")
         case .authorizedAlways: fallthrough
