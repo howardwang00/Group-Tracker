@@ -64,6 +64,9 @@ class GroupViewController: UIViewController {
     }
 
     @IBAction func createButtonTapped(_ sender: Any) {
+        self.navigationController?.navigationBar.isUserInteractionEnabled = false
+        self.view.isUserInteractionEnabled = false
+        
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
@@ -92,6 +95,9 @@ class GroupViewController: UIViewController {
         let joinAction = UIAlertAction(title: "Join", style: .default, handler: { (action) in
             guard let groupCodeTextField = groupCodeAlertController.textFields?[0],
                 let groupCode = groupCodeTextField.text else { return }
+            self.navigationController?.navigationBar.isUserInteractionEnabled = false
+            self.view.isUserInteractionEnabled = false
+            
             self.checkGroupCode(groupCode: groupCode)
         })
         joinAction.isEnabled = false
