@@ -9,7 +9,6 @@
 import UIKit
 
 class GroupViewController: UIViewController {
-    //@IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var editUsername: UIBarButtonItem!
@@ -26,7 +25,8 @@ class GroupViewController: UIViewController {
             self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
         }
         
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(color: .skyBlue)]
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(color: .blue)]
+        //navigationController?.navigationBar.tintColor = UIColor(color: .blueGreen)
         self.title = "Hi \(User.current.username)!"
         self.joinButton.layer.cornerRadius = 5
         self.createButton.layer.cornerRadius = 5
