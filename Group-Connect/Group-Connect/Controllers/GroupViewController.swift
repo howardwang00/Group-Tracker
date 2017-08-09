@@ -64,8 +64,15 @@ class GroupViewController: UIViewController {
     }
 
     @IBAction func createButtonTapped(_ sender: Any) {
+        let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        loadingView.center = self.view.center
+        loadingView.hidesWhenStopped = true
+        loadingView.startAnimating()
+        self.view.addSubview(loadingView)
+        
         self.navigationController?.navigationBar.isUserInteractionEnabled = false
         self.view.isUserInteractionEnabled = false
+        
         
         let dispatchGroup = DispatchGroup()
         
@@ -75,7 +82,8 @@ class GroupViewController: UIViewController {
             dispatchGroup.leave()
         }
         
-        dispatchGroup.notify(queue: .main) { 
+        dispatchGroup.notify(queue: .main) {
+            loadingView.stopAnimating()
             self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
         }
     }
@@ -87,7 +95,10 @@ class GroupViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToGroupViewController(_ segue: UIStoryboardSegue) { }
+    @IBAction func unwindToGroupViewController(_ segue: UIStoryboardSegue) {
+        self.view.isUserInteractionEnabled = true
+        self.navigationController?.navigationBar.isUserInteractionEnabled = true
+    }
     
     private func presentGroupCodeAlert() {
         let groupCodeAlertController = UIAlertController(title: "Group Code", message: "Enter a Group Code to Join an Existing Group!", preferredStyle: .alert)
@@ -95,10 +106,17 @@ class GroupViewController: UIViewController {
         let joinAction = UIAlertAction(title: "Join", style: .default, handler: { (action) in
             guard let groupCodeTextField = groupCodeAlertController.textFields?[0],
                 let groupCode = groupCodeTextField.text else { return }
+            
+            let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            loadingView.center = self.view.center
+            loadingView.hidesWhenStopped = true
+            loadingView.startAnimating()
+            self.view.addSubview(loadingView)
+            
             self.navigationController?.navigationBar.isUserInteractionEnabled = false
             self.view.isUserInteractionEnabled = false
             
-            self.checkGroupCode(groupCode: groupCode)
+            self.checkGroupCode(groupCode: groupCode, loadingView: loadingView)
         })
         joinAction.isEnabled = false
         
@@ -116,7 +134,7 @@ class GroupViewController: UIViewController {
         self.present(groupCodeAlertController, animated: true, completion: nil)
     }
     
-    private func checkGroupCode(groupCode: String?) {
+    private func checkGroupCode(groupCode: String?, loadingView: UIActivityIndicatorView) {
         guard let groupCode = groupCode else {
             return
         }
@@ -124,6 +142,8 @@ class GroupViewController: UIViewController {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         GroupService.joinGroup(groupCode: groupCode) { (groupExists) in
+            loadingView.stopAnimating()
+            
             if groupExists {
                 self.groupCode = groupCode
             } else {
@@ -133,6 +153,9 @@ class GroupViewController: UIViewController {
                 }))
                 
                 self.present(alertController, animated: true, completion: nil)
+                
+                self.navigationController?.navigationBar.isUserInteractionEnabled = true
+                self.view.isUserInteractionEnabled = true
                 
                 return    //dispatchGroup does not leave and does not segue to Map
             }

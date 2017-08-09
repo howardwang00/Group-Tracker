@@ -79,14 +79,6 @@ class MapViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Segue.leaveGroup {
-            let destination = segue.destination as! GroupViewController
-            destination.view.isUserInteractionEnabled = true
-            destination.navigationController?.navigationBar.isUserInteractionEnabled = true
-        }
-    }
-    
     private func updateGroupLocations(_ groupLocations: [String: [String: CLLocationDegrees]]) {
         //print(groupLocations)
         for userID in groupMarkers.keys {
