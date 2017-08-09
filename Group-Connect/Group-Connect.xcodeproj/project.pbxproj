@@ -20,8 +20,8 @@
 		89913D9A1F169893009AA08C /* Createusername.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89913D971F169893009AA08C /* Createusername.storyboard */; };
 		89913D9E1F1698A5009AA08C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89913D9C1F1698A5009AA08C /* GoogleService-Info.plist */; };
 		89913DA51F16CB2F009AA08C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89913DA41F16CB2F009AA08C /* Constants.swift */; };
+		89A36F5A1F3BAC34004039A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A36F591F3BAC34004039A9 /* Assets.xcassets */; };
 		89CF44FD1F159C8B00C087D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF44FC1F159C8B00C087D5 /* AppDelegate.swift */; };
-		89CF45041F159C8B00C087D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89CF45031F159C8B00C087D5 /* Assets.xcassets */; };
 		89D46CEB1F1FDB10007D3434 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D46CEA1F1FDB10007D3434 /* MapViewController.swift */; };
 		E066EF07D701D837631CD45A /* Pods_Group_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5272907DD8A9FA9799DA19C /* Pods_Group_Connect.framework */; };
 /* End PBXBuildFile section */
@@ -43,9 +43,9 @@
 		89913D9C1F1698A5009AA08C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89913D9D1F1698A5009AA08C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Supporting/Info.plist; sourceTree = "<group>"; };
 		89913DA41F16CB2F009AA08C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
+		89A36F591F3BAC34004039A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89CF44F91F159C8B00C087D5 /* Group-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Group-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CF44FC1F159C8B00C087D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89CF45031F159C8B00C087D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89D46CEA1F1FDB10007D3434 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controllers/MapViewController.swift; sourceTree = "<group>"; };
 		D5272907DD8A9FA9799DA19C /* Pods_Group_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Group_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				89CF44FC1F159C8B00C087D5 /* AppDelegate.swift */,
-				89CF45031F159C8B00C087D5 /* Assets.xcassets */,
+				89A36F591F3BAC34004039A9 /* Assets.xcassets */,
 				892698C41F1979F800A52AA5 /* Extensions */,
 				892A07A61F17D8B500B3D8EF /* Models */,
 				89913DA31F16C9D4009AA08C /* Services */,
@@ -235,8 +235,8 @@
 				89913D991F169893009AA08C /* LaunchScreen.storyboard in Resources */,
 				89913D9E1F1698A5009AA08C /* GoogleService-Info.plist in Resources */,
 				892607001F1D70C1001EDE35 /* Main.storyboard in Resources */,
-				89CF45041F159C8B00C087D5 /* Assets.xcassets in Resources */,
 				89913D9A1F169893009AA08C /* Createusername.storyboard in Resources */,
+				89A36F5A1F3BAC34004039A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
