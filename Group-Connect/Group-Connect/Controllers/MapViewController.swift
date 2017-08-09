@@ -155,7 +155,7 @@ extension MapViewController: CLLocationManagerDelegate {
         case .denied:
             print("User denied access to location")
             
-            let alertController = UIAlertController(title: "Warning", message: "Location Access is Required in Order to Use This App", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Warning", message: "Location Access is Required in Order to Use This App\nPlease go into Settings > Privacy > Location Services > Group Vision to change this setting.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
             present(alertController, animated: true, completion: nil)
