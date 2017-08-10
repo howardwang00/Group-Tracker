@@ -204,7 +204,7 @@
 				TargetAttributes = {
 					89CF44F81F159C8B00C087D5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 84R2JMF96C;
+						DevelopmentTeam = 349WNMJ8N6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -410,10 +410,10 @@
 			baseConfigurationReference = 8339A8BB89674B8BFB7E0C9F /* Pods-Group-Connect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 84R2JMF96C;
+				DEVELOPMENT_TEAM = 349WNMJ8N6;
 				INFOPLIST_FILE = "$(SRCROOT)/Group-Connect/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hwang.Group-Connect";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.howardwang.Group-Vision";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -425,10 +425,10 @@
 			baseConfigurationReference = 767830451F7F38C1DE7B2D75 /* Pods-Group-Connect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 84R2JMF96C;
+				DEVELOPMENT_TEAM = 349WNMJ8N6;
 				INFOPLIST_FILE = "$(SRCROOT)/Group-Connect/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hwang.Group-Connect";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.howardwang.Group-Vision";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

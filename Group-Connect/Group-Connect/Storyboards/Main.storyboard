@@ -22,16 +22,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAT-KR-7mr">
-                                <rect key="frame" x="163" y="314" width="49" height="43"/>
+                                <rect key="frame" x="163" y="264" width="49" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSF-mz-BD6">
-                                <rect key="frame" x="50" y="407" width="274" height="100"/>
+                                <rect key="frame" x="62.5" y="357" width="250" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.792156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Rxl-Sa-3Mg"/>
+                                    <constraint firstAttribute="width" constant="250" id="SOJ-QZ-Dad"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="CREATE">
@@ -42,9 +43,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-Gs-vF1">
-                                <rect key="frame" x="50" y="164" width="275" height="100"/>
+                                <rect key="frame" x="62.5" y="114" width="250" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.792156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="LVg-Ol-wte"/>
                                     <constraint firstAttribute="height" constant="100" id="anR-MT-iOv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
@@ -61,10 +63,8 @@
                             <constraint firstItem="fSF-mz-BD6" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="8rX-1v-237"/>
                             <constraint firstItem="nAT-KR-7mr" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="9A0-oj-pWa"/>
                             <constraint firstItem="fSF-mz-BD6" firstAttribute="top" secondItem="nAT-KR-7mr" secondAttribute="bottom" constant="50" id="AwM-1m-WCQ"/>
-                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="50" id="SV7-fy-WdF"/>
-                            <constraint firstItem="fSF-mz-BD6" firstAttribute="leading" secondItem="f5R-XP-V3I" secondAttribute="leading" constant="50" id="cfB-uA-QQw"/>
                             <constraint firstItem="nAT-KR-7mr" firstAttribute="top" secondItem="AY3-Gs-vF1" secondAttribute="bottom" constant="50" id="lK3-0U-22q"/>
-                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="top" secondItem="eYh-aP-p2S" secondAttribute="bottom" constant="100" id="n8T-sM-1ha"/>
+                            <constraint firstItem="AY3-Gs-vF1" firstAttribute="top" secondItem="eYh-aP-p2S" secondAttribute="bottom" constant="50" id="n8T-sM-1ha"/>
                             <constraint firstItem="AY3-Gs-vF1" firstAttribute="centerX" secondItem="f5R-XP-V3I" secondAttribute="centerX" id="sTf-Lw-ZMi"/>
                         </constraints>
                     </view>
@@ -122,7 +122,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MfI-aR-4TM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V2I-Rp-koh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="V2I-Rp-koh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

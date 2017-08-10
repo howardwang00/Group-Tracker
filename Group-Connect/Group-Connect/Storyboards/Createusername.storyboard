@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Y-4p-4m6">
-                                <rect key="frame" x="62.5" y="140.5" width="250" height="118"/>
+                                <rect key="frame" x="62.5" y="130.5" width="250" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="zGW-Qi-gdR"/>
                                 </constraints>
@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZq-US-ZMH">
-                                <rect key="frame" x="87.5" y="468" width="200" height="75"/>
+                                <rect key="frame" x="87.5" y="492" width="200" height="75"/>
                                 <color key="backgroundColor" red="0.050980392156862744" green="1" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="mep-pV-SmY"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-dy-vPQ">
-                                <rect key="frame" x="62.5" y="308.5" width="250" height="50"/>
+                                <rect key="frame" x="62.5" y="298.5" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.792156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2es-oI-7xv"/>
@@ -54,10 +54,10 @@
                                 </constraints>
                                 <color key="textColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Others will see your username." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgz-3o-ODE">
-                                <rect key="frame" x="70" y="373" width="234.5" height="20"/>
+                                <rect key="frame" x="70" y="363" width="234.5" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -65,10 +65,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.30588235294117649" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="iZq-US-ZMH" firstAttribute="top" secondItem="tgz-3o-ODE" secondAttribute="bottom" constant="75" id="G6N-CT-NMF"/>
-                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="centerY" secondItem="Bax-gZ-3V2" secondAttribute="centerY" id="Klu-hC-dba"/>
+                            <constraint firstItem="uOB-6S-WoD" firstAttribute="top" secondItem="iZq-US-ZMH" secondAttribute="bottom" constant="100" id="J3G-jG-Opm"/>
                             <constraint firstItem="tgz-3o-ODE" firstAttribute="top" secondItem="OSL-dy-vPQ" secondAttribute="bottom" constant="15" id="NPv-g1-7DY"/>
                             <constraint firstItem="OSL-dy-vPQ" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="P3A-US-jhq"/>
+                            <constraint firstItem="OSL-dy-vPQ" firstAttribute="centerY" secondItem="Bax-gZ-3V2" secondAttribute="centerY" constant="-10" id="PLM-kg-6Y7"/>
                             <constraint firstItem="iZq-US-ZMH" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="fxG-to-xre"/>
                             <constraint firstItem="OSL-dy-vPQ" firstAttribute="top" secondItem="Z2Y-4p-4m6" secondAttribute="bottom" constant="50" id="krd-KT-ksJ"/>
                             <constraint firstItem="tgz-3o-ODE" firstAttribute="centerX" secondItem="Bax-gZ-3V2" secondAttribute="centerX" id="uD5-h4-TTD"/>
