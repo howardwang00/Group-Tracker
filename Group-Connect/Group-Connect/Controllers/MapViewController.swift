@@ -41,7 +41,7 @@ class MapViewController: UIViewController {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
         
-        print("Retrieve Group Locations")
+        //print("Retrieve Group Locations")
         LocationService.startRetrieveGroupLocations(returnObserver: { (observer) in
             groupObserver = observer
         }) { (groupLocations, groupUsernames, groupTimestamps) in

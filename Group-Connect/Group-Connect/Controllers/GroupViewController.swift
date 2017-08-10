@@ -20,7 +20,7 @@ class GroupViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         if let groupCode = User.current.groupCode {
-            print("User already in group")
+            //print("User already in group")
             self.groupCode = groupCode
             self.performSegue(withIdentifier: Constants.Segue.toMap, sender: nil)
         }

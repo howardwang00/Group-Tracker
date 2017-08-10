@@ -70,7 +70,7 @@ struct GroupService {
         let ref = Database.database().reference().child(Constants.groups)
         
         if groupCode.characters.count != 4 {
-            print("INVALID NUMBER OF LETTERS")
+            //print("INVALID NUMBER OF LETTERS")
             completion(false)
             return
         }
@@ -83,7 +83,7 @@ struct GroupService {
             guard let groupDict = snapshot.value as? [String: Any?] else { return }
             
             if groupDict[groupCode] != nil {
-                print("Group Currently Exists")
+                //print("Group Currently Exists")
                 writeGroupInfoToFirebase(groupCode, ref)
                 completion(true)
             } else {
@@ -94,7 +94,7 @@ struct GroupService {
     
     static func leaveGroup(observer: UInt?) {
         guard let groupCode = User.current.groupCode else {
-            print("Error: Current Group Code Does Not Exist")
+            //print("Error: Current Group Code Does Not Exist")
             return
         }
         
@@ -102,7 +102,7 @@ struct GroupService {
         
         if let observer = observer {
             ref.removeObserver(withHandle: observer)
-            print("Removed Group Observer")
+            //print("Removed Group Observer")
         }
         
         ref.child(User.current.uid).removeValue()

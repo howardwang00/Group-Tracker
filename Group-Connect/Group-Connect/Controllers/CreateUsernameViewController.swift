@@ -40,11 +40,11 @@ class CreateUsernameViewController: UIViewController, UITextFieldDelegate {
                 fatalError("Unable to create new user")
             }
             
-            print("Created new user: \(username)")
+            //print("Created new user: \(username)")
             
             User.setCurrent(User(uid: firebaseUser.uid, username: username), writeToUserDefaults: true)
             
-            print("Segue: to Group Screen")
+            //print("Segue: to Group Screen")
             self.performSegue(withIdentifier: Constants.Segue.toMain, sender: nil)
         }
     }

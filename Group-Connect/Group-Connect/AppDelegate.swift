@@ -59,9 +59,9 @@ extension AppDelegate {
             let userData = UserDefaults.standard.object(forKey: Constants.User.current) as? Data,
             let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? User {
             
-            print("User already logged in")
+            //print("User already logged in")
             User.setCurrent(user)
-            print("Group Code: \(User.current.groupCode ?? "nil")")
+            //print("Group Code: \(User.current.groupCode ?? "nil")")
             
             initialViewController = UIStoryboard.initialViewController(for: .main)
         } else {
